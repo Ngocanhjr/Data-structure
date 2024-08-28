@@ -1,4 +1,4 @@
-#sort
+# sort
 
 Với kích thước dữ liệu đầu vào nhỏ(3000) nhìn chung tốc độ chênh lệch của các thuật toán là không rõ để nhận thấy.
 
