@@ -1,3 +1,5 @@
+#sort
+
 Với kích thước dữ liệu đầu vào nhỏ(3000) nhìn chung tốc độ chênh lệch của các thuật toán là không rõ để nhận thấy.
 
 Với mảng đã được sắp xếp, thì Bubble Sort và Shaker Sort cho tốc độ nhanh nhất do chi phí để biết được đây là mảng có thứ tự của 2 thuật toán trên là O(n).
