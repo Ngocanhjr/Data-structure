@@ -52,7 +52,7 @@ void deleteAllValueOfx(ElementType x, List *pL);
 
 void demoDeleteAllValueOfx(ElementType x, List *pL);
 
-int checkNumber(List L);
+int checkNumber(int a);
 
 List oddList(List L); // le
 
@@ -236,11 +236,9 @@ void demoDeleteAllValueOfx(ElementType x, List *pL){
 }
 
 int checkNumber(int a){
-    if(a%2==0){
+    if(a%2==0)
         return 1;
-    } else {
-        return 0;
-    }
+   return 0;
 }
 
 List oddList(List L){
