@@ -70,7 +70,7 @@ void deleteList(Position p, List *L){
         return;
     } else{
         Position q;
-        for (q = p; q < L->last; q++){
+        for (q = p; q < L->last; q--){
             L->elements[q - 1] = L->elements[q];
         }
         L->last--;
@@ -124,8 +124,7 @@ void readList(List *L){
 
 void replace(ElementType x, Position p, List *L){
     insertList(x, p, L);
-    Position q =next(p, *L);
-    deleteList(q, L);
+    deleteList(next(p, *L), L);
 }
 
 void swap(Position p, Position q, List *L){
@@ -155,3 +154,4 @@ void sort(List *L){
         p = next(p, *L);
     }
 }
+

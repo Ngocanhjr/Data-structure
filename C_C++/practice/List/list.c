@@ -1,99 +1,84 @@
-#include <stdio.h>
+
 #include "alistlib.h"
 
-void makeNull( List *pL){
-    pL->size = 0;
-}
+int main() {
+    int temp;
+    makeNull(&L);
+    print(L);
+    printf("\n----------------------------------------------------\n");
 
-void build(ElementType A[], int n,List *pL){
-    for (int i = 0; i < n; i++){
-        pL->element[i] = A[i];
-    }
-    pL->size = n;
-}
+    append(10, &L);
+    append(20, &L);
+    append(30, &L);
 
-int len(List L){
-    return L.size;
-}
+    printf("APPEND\n");
+    print(L);
+    printf("\n");
 
-int empty(List L){
-    return L.size == 0;
-}
+    insertFirst(5, &L);
+    printf("INSERT AT FIRST\n");
+    print(L);
+    printf("\n");
+    
+    temp = 2;
+    insertAt(temp, 15, &L);
+    printf("INSERT AT %d :\n", temp);
+    print(L);
+    printf("\n----------------------------------------------------\n");
+    
+    printf("DELETE FIRST ELEMENT\nValue at first: %d\n", popFirst(&L));
+    print(L);
+    printf("\n");
 
-int fullList(List L){
-    return L.size == MAXSIZE;
-}
+    temp = 2;
+    printf("DELETE AT %d\n", temp);
+    printf("Value: %d\n", popAt(temp,&L));
+    print(L);
+    printf("\n");
 
-void print(List L){
-    printf("List of element: ");
-    for (int i = 0; i < len(L); i++){
-        printf("%d ", getAt(i, L));
-    }
-}
+    printf("DELETE LAST ELEMENT\nValue at last: %d\n", popLast(&L));
+    print(L);
+    printf("\n----------------------------------------------------\n");
 
-ElementType getAt(Position p, List L){
-    return L.element[p];
-}
+    temp = 48;
+    printf("SET %d AT 5\n", temp);
+    setAt(5,temp,&L);
+    print(L);
+    printf("\n----------------------------------------------------\n");
 
-void setAt(Position p, ElementType x, List *pL){
-    pL->element[p] = x;
-}
+    append(5, &L);
+    append(7, &L);
+    append(2, &L);
+    append(44, &L);
+    append(52, &L);
+    append(33, &L);
+    printf("APPEND\n");
+    print(L);
+    printf("\n");
 
-void insertAt(Position p, ElementType x, List *pL){
-    if(p < 0 || p > len(*pL)){
-        printf("invalid position!");
-        return;
-    } else if (fullList(*pL)){
-        printf("List is full!");
-        return;
-    } else{
-        for ( int i = pL->size; i > p; i--){
-            pL->element[i] = pL->element[i - 1];
-        }
-        pL->element[p] = x;
-        pL->size++;
-    }
-}
-
-ElementType popAt(Position p, List *pL){
-    if(p < 0 || p > len(*pL)){
-        printf("invalid position!");
-    return;
-    } else {
-        for(int i = p; i < pL->size; i++){
-            pL->element[p] = pL->element[p + 1];
-        }
-        pL->size--;
-        return pL->element[p];
-    }
-}
-
-void insertFirst(ElementType x, List *pL){
-    insertAt(0,x,pL);
-}
-
-ElementType popFirst(List *pL){
-    popAt(0,pL);
-    return pL->element[0];
-}
-
-void append(ElementType x, List *pL){
-    pL->size++;
-    pL->element[len(*pL) - 1] = x;
-}
-
-ElementType popLast(List *pL){
-    pL->size--;
-    return pL->element[pL->size];
-}
-
-Position locate(ElementType x, List L){
-    int found = 0;
-    for ( int i = 0; i < len(L); i++){
-        if(getAt(i, L) == x)
-        {
-            found = i;
-        }
-    }
-    return found;
+    printf("FOUND\n");
+    temp = 20;
+    printf("Found: %d\n", temp);
+    Position pos = locate(temp, L);
+    if (pos)
+        printf("Element at: %d\n", pos);
+    else
+        printf("Not founded!.\n");
+    
+    temp = 44;
+    printf("Found: %d\n", temp);
+    pos = locate(temp, L);
+    if (pos)
+        printf("Element at: %d\n", pos);
+    else
+        printf("Not founded!.\n");
+    printf("----------------------------------------------------\n");
+    
+    printf("SORT\n");
+    sort(&L);
+    print(L);
+    printf("\nMAKE NULL\n");
+    makeNull(&L);
+    print(L);
+    return 0;
 }
