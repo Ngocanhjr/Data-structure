@@ -5,10 +5,10 @@
 - [x] ⌨ Linked List in C/C++ - Insert a node at nth position
 - [x] ⌨ Linked List in C/C++ - Delete a node at beginning
 - [ ] ⌨ Update Delete a node at beginning using nead and tail
-- [ ] ⌨ Linked List in C/C++ - Delete a node at nth position
-- [ ] ⌨ Reverse a linked list - Iterative method
-- [ ] ⌨ Print elements of a linked list in forward and reverse order using recursion
-- [ ] ⌨ Reverse a linked list using recursion
+- [x] ⌨ Linked List in C/C++ - Delete a node at nth position
+- [x] ⌨ Reverse a linked list - Iterative method
+- [x] ⌨ Print elements of a linked list in forward and reverse order using recursion
+- [ ] ⌨ Reverse a linked list using recursion (Update)
 
 **Doubly Linked List**
 - [ ] ⌨ Doubly Linked List - Implementation in C/C++
