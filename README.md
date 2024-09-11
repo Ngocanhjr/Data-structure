@@ -9,6 +9,7 @@
 - [x] ⌨ Reverse a linked list - Iterative method
 - [x] ⌨ Print elements of a linked list in forward and reverse order using recursion
 - [ ] ⌨ Reverse a linked list using recursion (Update)
+- [ ] ⌨ Circular Linked List
 
 **Doubly Linked List**
 - [ ] ⌨ Doubly Linked List - Implementation in C/C++
