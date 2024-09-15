@@ -4,6 +4,7 @@
 int main() {
     int temp;
     makeNull(&L);
+    printf("\n----------------------------------------------------\n");
     print(L);
     printf("\n----------------------------------------------------\n");
 
@@ -32,11 +33,11 @@ int main() {
 
     temp = 2;
     printf("DELETE AT %d\n", temp);
-    printf("Value: %d\n", popAt(temp,&L));
+    printf("New value at %d: %d\n",temp, popAt(temp,&L));
     print(L);
     printf("\n");
 
-    printf("DELETE LAST ELEMENT\nValue at last: %d\n", popLast(&L));
+    printf("DELETE LAST ELEMENT\nNew value at last: %d\n", popLast(&L));
     print(L);
     printf("\n----------------------------------------------------\n");
 

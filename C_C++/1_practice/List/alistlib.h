@@ -26,9 +26,9 @@ void print(List L); // Traverse the list to print out all elements
 
 ElementType getAt(Position p, List L); // return the element at position p
 
-ElementType first(List L); // return the first position of list
+Position first(List L); // return the first position of list
 
-ElementType end(List L); // return the end position nof list
+Position endList(List L); // return the end position of list
 
 void setAt(Position p, ElementType x, List *L); // Update the element at position p by a new value x
 
@@ -49,12 +49,6 @@ Position locate(ElementType x, List L); // Return the position of the first appe
 Position next(Position p, List L); // return the next position of p in list
 
 Position previous(Position p, List L); // return the previous position of p in list
-
-void swap(ElementType *x, ElementType *y);
-
-void sort(List *L);
-
-void build(ElementType A[], int n, List *L);
 
 void makeNull(List *L)
 {
@@ -89,10 +83,11 @@ void print(List L)
         printf("List is full!\n");
     }
     printf("List of element: ");
-    for (int i = 1; i < end(L); i++)
+    for (int i = 1; i < endList(L); i++)
     {
         printf("%d ", getAt(i, L));
     }
+    printf("\n");
 }
 
 ElementType getAt(Position p, List L)
@@ -105,7 +100,7 @@ ElementType first(List L)
     return 1;
 }
 
-ElementType end(List L)
+ElementType endList(List L)
 {
     return L.size + 1;
 }
@@ -150,19 +145,14 @@ ElementType popAt(Position p, List *L)
         printf("invalid position!\n");
         exit(EXIT_FAILURE);;
     }
-    else if (empty(*L))
-    {
-        printf("List is empty!\n");
-        exit(EXIT_FAILURE);
-    }
-    else
+    else 
     {
         for (int i = p; i < L->size; i++)
         {
             L->element[i - 1] = L->element[i];
         }
         L->size--;
-        return getAt(p, *L);
+        return getAt(p, *L);    
     }
 }
 
@@ -200,7 +190,7 @@ ElementType popLast(List *L)
 Position locate(ElementType x, List L)
 {
     int found = 0;
-    Position p = first(L), q = end(L);
+    Position p = first(L), q = endList(L);
     while (p != q && !found)
     {
         if (getAt(p, L) == x)
@@ -234,7 +224,7 @@ void swap(ElementType *x, ElementType *y)
 
 void sort(List *L)
 {
-    Position p = first(*L), e = end(*L), q;
+    Position p = first(*L), e = endList(*L), q;
     while (p != e)
     {
         q = next(p, *L);
@@ -250,11 +240,11 @@ void sort(List *L)
     }
 }
 
-void build(ElementType A[], int n, List *L)
-{
-    for (int i = 0; i < n; i++)
-    {
-        L->element[i] = A[i];
-    }
-    L->size = n;
-}
+// void build(ElementType A[], int n, List *L)
+// {
+//     for (int i = 0; i < n; i++)
+//     {
+//         L->element[i] = A[i];
+//     }
+//     L->size = n;
+// }
