@@ -6,10 +6,13 @@ int main (){
     a = read();
     print(a);
 
-    Polynomial d = derivative(a);
+    b = read(); 
+    print(b);
+    Polynomial sum = add(a,b);
+    printf("ADD: \n");
+    print(sum);
+
+    Polynomial d = derivative(b);
+    printf("DERIVATIVE: \n");
     print(d);
-    // b = read(); 
-    // print(b);
-    // Polynomial sum = add(a,b);
-    // print(sum);
 }

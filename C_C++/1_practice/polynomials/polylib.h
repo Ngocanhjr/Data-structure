@@ -29,26 +29,17 @@ void addMonomialIntoPolynomial(Monomial mono, Polynomial *poly)
 {
     if (mono.factor == 0)
         return;
-    if (isEmpty(*poly))
+    int length = poly->size;
+    for (int i = 0; i < length; i++)
     {
-        poly->element[poly->size] = mono;
-        poly->size++;
-        return;
-    }
-    else
-    {
-        int length = poly->size;
-        for (int i = 0; i < length; i++)
+        if (mono.exponent == poly->element[i].exponent)
         {
-            if (mono.exponent == poly->element[i].exponent)
-            {
-                poly->element[i].factor += mono.factor;
-                return;
-            }
+            poly->element[i].factor += mono.factor;
+            return;
         }
-        poly->element[poly->size] = mono;
-        poly->size++;
     }
+    poly->element[poly->size] = mono;
+    poly->size++;
 }
 
 void sort(Polynomial *poly)
@@ -64,7 +55,8 @@ void sort(Polynomial *poly)
                 max_pos = j;
             }
         }
-        if(max_pos == i) continue;
+        if (max_pos == i)
+            continue;
         Monomial temp = poly->element[i];
         poly->element[i] = poly->element[max_pos];
         poly->element[max_pos] = temp;
@@ -76,7 +68,7 @@ Polynomial read()
     Polynomial newPoly;
     makeNull(&newPoly);
     int size;
-    printf("Enter number of monomial: ");
+    printf("Enter number of monomials: ");
     scanf("%d", &size);
     for (int i = 0; i < size; i++)
     {
@@ -92,7 +84,13 @@ Polynomial read()
 
 void print(Polynomial p)
 {
+    if (isEmpty(p))
+    {
+        printf("Empty polynomial!");
+        return;
+    }
     int length = p.size;
+    printf("Polynomial: ");
     for (int i = 0; i < length; i++)
     {
         if (p.element[i].exponent == 1)
@@ -115,46 +113,55 @@ void print(Polynomial p)
     printf("\n---------------------------------------\n");
 }
 
-Polynomial add(Polynomial poly1, Polynomial poly2){
-    int idxPoly1 = 0, idxPoly2 = 0, idxNew = 0;
+Polynomial add(Polynomial poly1, Polynomial poly2)
+{
+    int idxPoly1 = 0, idxPoly2 = 0;
     Polynomial newPoly;
     makeNull(&newPoly);
-    while(idxPoly1 != poly1.size && idxPoly2 != poly2.size){
-        Monomial newMono;
-        if(poly1.element[idxPoly1].exponent > poly2.element[idxPoly2].exponent){
+    while (idxPoly1 != poly1.size && idxPoly2 != poly2.size)
+    {
+        if (poly1.element[idxPoly1].exponent > poly2.element[idxPoly2].exponent)
+        {
             addMonomialIntoPolynomial(poly1.element[idxPoly1], &newPoly);
             idxPoly1++;
         }
-        else if(poly1.element[idxPoly1].exponent < poly2.element[idxPoly2].exponent){
+        else if (poly1.element[idxPoly1].exponent < poly2.element[idxPoly2].exponent)
+        {
             addMonomialIntoPolynomial(poly2.element[idxPoly2], &newPoly);
             idxPoly2++;
-        } else{
+        }
+        else
+        {
+            Monomial newMono;
             newMono.factor = poly1.element[idxPoly1].factor + poly2.element[idxPoly2].factor;
             newMono.exponent = poly1.element[idxPoly1].exponent;
-            addMonomialIntoPolynomial(newMono,&newPoly);
+            addMonomialIntoPolynomial(newMono, &newPoly);
             idxPoly1++;
             idxPoly2++;
         }
     }
     while (idxPoly1 != poly1.size)
     {
-        addMonomialIntoPolynomial(poly1.element[idxPoly1],&newPoly);
+        addMonomialIntoPolynomial(poly1.element[idxPoly1], &newPoly);
         idxPoly1++;
     }
     while (idxPoly2 != poly2.size)
     {
-        addMonomialIntoPolynomial(poly2.element[idxPoly2],&newPoly);
+        addMonomialIntoPolynomial(poly2.element[idxPoly2], &newPoly);
         idxPoly2++;
-    } 
+    }
     sort(&newPoly);
     return newPoly;
 }
 
-Polynomial derivative(Polynomial poly){
+Polynomial derivative(Polynomial poly)
+{
     Polynomial newPoly;
     makeNull(&newPoly);
-    for(int i = 0; i < poly.size; i++){
-        if(poly.element[i].exponent == 0) continue;
+    for (int i = 0; i < poly.size; i++)
+    {
+        if (poly.element[i].exponent == 0)
+            continue;
         newPoly.element[i].factor = poly.element[i].factor * (poly.element[i].exponent);
         newPoly.element[i].exponent = poly.element[i].exponent - 1;
         newPoly.size++;
