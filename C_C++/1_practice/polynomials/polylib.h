@@ -93,17 +93,19 @@ void print(Polynomial p)
     printf("Polynomial: ");
     for (int i = 0; i < length; i++)
     {
+        if ((float)p.element[i].factor == 0)
+            continue;
         if (p.element[i].exponent == 1)
         {
-            printf("%1.fX", p.element[i].factor);
+            printf("%.1fX", p.element[i].factor);
         }
         else if (p.element[i].exponent == 0)
         {
-            printf("%1.f", p.element[i].factor);
+            printf("%.1f", p.element[i].factor);
         }
         else
         {
-            printf("%1.fX^%d", p.element[i].factor, p.element[i].exponent);
+            printf("%.1fX^%d", p.element[i].factor, p.element[i].exponent);
         }
         if (i != length - 1)
         {
@@ -161,7 +163,11 @@ Polynomial derivative(Polynomial poly)
     for (int i = 0; i < poly.size; i++)
     {
         if (poly.element[i].exponent == 0)
+        {
+            newPoly.element[i].factor = 0;
+            newPoly.size++;
             continue;
+        }
         newPoly.element[i].factor = poly.element[i].factor * (poly.element[i].exponent);
         newPoly.element[i].exponent = poly.element[i].exponent - 1;
         newPoly.size++;
