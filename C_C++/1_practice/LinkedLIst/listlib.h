@@ -25,7 +25,7 @@ Position getPosition(int idx, List L); //return the pointer referring to the pos
 
 Position first(List L); // return the pointer referring tho the first element of L
 
-Position end(List L); // return the pointet to the last element of L
+Position end(List L); // return the pointer to the last element of L
 
 void setAt(int idx, ElementType x, List *L); // Update the element at position p by a new value x
 
@@ -41,11 +41,11 @@ void append(ElementType x, List *L); // Append a new element to the first
 
 ElementType popLast(List *L); // Remove and return a last element
 
-Position locate(ElementType x, List L); // Return the position of the first appearance of x in the list
+int locate(ElementType x, List L); // Return the position of the first appearance of x in the list
 
 Position next(int idx, List L); //return the pointer referring to the next position of pos in L
 
-Position previous(int idx, List L);   
+Position previous(int idx, List L);  
 
 ElementType retrieve(Position p, List L);
 
@@ -65,14 +65,20 @@ int len(List L){
 }
 
 int empty(List L){
-    return L->next == NULL;
+    List p;
+    p = L;
+    return p->next == NULL;
 }
 
 void print(List L){
     List header = L;
+    if(empty(L)){
+        printf("<!> Empty\n");
+        return;
+    }
     while (header->next != NULL)
     {
-       printf("%d ", header->data);
+       printf("%d ", retrieve(header, L));
        header = header->next;
     }
 }
@@ -101,7 +107,7 @@ Position first(List L){
 Position end(List L)
 {
     Position p = L;
-    while (p->next != NULL)
+    while (p->next->next != NULL)
     {
         p = p->next;
     }
@@ -115,14 +121,14 @@ void setAt(int idx, ElementType x, List *L){
 
 void insertAt(int idx, ElementType x, List *L){
     List source = getPosition(idx, *L);
-    List temp = (Node*)malloc(sizeof(Node));
-    temp->data = x;
-    temp->next = source->next;
-    source->next = temp; 
+    List newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = x;
+    newNode->next = source->next;
+    source->next = newNode; 
 }
 
 ElementType popAt(int idx, List *L){
-    if(idx > 0 && idx <= len(*L)){
+    if(idx >= 0 && idx <= len(*L)){
         List p = getPosition(idx, *L);
         ElementType value = retrieve(p, *L);
         List delNode = p->next;
@@ -142,12 +148,17 @@ void insertFirst(ElementType x, List *L){
 }
 
 ElementType popFirst(List *L){
-    if(empty){
-        return;
-    } else {
-        List delNode = getPosition(1, *L);
-        delNode = next(1, *L);
-        free(delNode);
+    if(!empty(*L)){
+        // popAt(0,L);
+        int value = retrieve(first(*L),*L);
+        List new = (*L)->next;
+        (*L)->next = (*L)->next->next;
+        free(new); 
+        return value;
+    }
+    else{
+        printf("<!> Empty\n");
+        exit(EXIT_FAILURE);
     }
 }
 
@@ -163,16 +174,16 @@ Position next (int pos, List L){
 
 Position previous(int idx, List L){
     List header = L;
-    if(empty){
-        return;
-    } else{
+    if(!empty(L)){
         int count = 0;
         while (header->next != NULL && count < idx - 1){
             count++;
             header = header->next;
         }
-    return header->next;
-    }
+        return header;
+    } 
+    printf("<!> Empty\n");
+    exit(EXIT_FAILURE);
 }
 
 void append(ElementType x, List *L){
@@ -180,20 +191,24 @@ void append(ElementType x, List *L){
 }
 
 ElementType popLast(List *L){
-    Position end = getPosition(len(*L), *L) ;
-    int value = retrieve(end, *L);
-    popAt(len(*L), L);
+    Position last = end(*L)  ;
+    int value = retrieve(last, *L);
+    popAt(len(*L) - 1, L);
     return value;
 }
 
-Position locate(ElementType x, List L){
+int locate(ElementType x, List L){
     List p = L;
-    while(p->next != NULL){
-        if(x == retrieve(p, L));
-            return p;
+    int pos = 0, found = 0;
+    while(p->next != NULL && !found){
+        if(x == retrieve(p, L))
+            {
+                found = 1;
+            }
+        pos++;
         p = p->next;
     }
-    return p;
+    return pos - 1;
 }
 
 ElementType retrieve(Position p, List L){

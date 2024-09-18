@@ -143,7 +143,7 @@ ElementType popAt(Position p, List *L)
     if (p < 1 || p > len(*L))
     {
         printf("invalid position!\n");
-        exit(EXIT_FAILURE);;
+        exit(EXIT_FAILURE);
     }
     else 
     {
@@ -230,7 +230,7 @@ void sort(List *L)
         q = next(p, *L);
         while (q != e)
         {
-            if (getAt(p, *L) > getAt(q, *L)) // dua thang nho nhat ve dau
+            if (getAt(p, *L) > getAt(q, *L)) // dua thang min ve dau
             {
                 swap(&L->element[p - 1],&L->element[q - 1]);
             }
