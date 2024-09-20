@@ -1,1 +1,0 @@
-{"name":"Local: bigInt","url":"e:\\RHNA\\Visual\\Data structure\\TMT\\C_C++\\practice\\bigInt.cpp","tests":[{"id":1724521757181,"input":"-273\n-363","output":"-636\n90"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\RHNA\\Visual\\Data structure\\TMT\\C_C++\\practice\\bigInt.cpp","group":"local","local":true}

@@ -1,1 +1,0 @@
-{"name":"Local: Integer","url":"e:\\RHNA\\Visual\\Data structure\\TMT\\C_C++\\practice\\Integer.cpp","tests":[{"id":1724561502684,"input":"-1578964\n347621058","output":"3466042094\n-349200022"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\RHNA\\Visual\\Data structure\\TMT\\C_C++\\practice\\Integer.cpp","group":"local","local":true}

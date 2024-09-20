@@ -1,12 +1,12 @@
-#include "listlib.h"
+#include "plistlib.h"
 // #include "demo.h"
 int main (){
     int temp;
     List L;
     makeNull(&L);
-    //DONE
-    // printf("\n------------------CHECK EMPTY FUNCTION----------------------\n");
-    // print(L);
+    //-DONE
+    printf("\n------------------CHECK EMPTY FUNCTION----------------------\n");
+    print(L);
 
     printf("--------------------APPEND FUNCTION-------------------------\n");
     for(int i = 15; i > 7; i--){
@@ -14,9 +14,9 @@ int main (){
     }   
     print(L);
 
-    //DONE
-    // printf("\n--------------------LENGTH FUNCTION-------------------------\n");
-    // printf("Length: %d", len(L));
+    //-DONE
+    printf("\n--------------------LENGTH FUNCTION-------------------------\n");
+    printf("Length: %d", len(L));
 
     printf("\n-------------GET AT POSITION FUNCTION-------------------------\n");
     temp = 1;
@@ -38,7 +38,6 @@ int main (){
     printf("Current: %d\n",popLast(&L));
     printf("New value at last: %d\n",retrieve(end(L),L));
     print(L);
-    temp = 3;
     printf("\nCurrent: %d\n",popAt(temp,&L));
     printf("New value at %d: %d\n",temp, retrieve(getPosition(temp,L),L));
 
