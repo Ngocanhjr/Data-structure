@@ -192,7 +192,7 @@ ElementType popFirst(List *L)
   if(!empty(*L)){
     ElementType value = (*L)->next->data;
     List del = (*L)->next;
-    (*L) = del->next;
+    (*L)->next = del->next;
     free(del);
     return value;
   } else {
@@ -229,8 +229,10 @@ Position locate(ElementType x, List L)
   List header = L;
   int found = 0, pos = 0;
   while (header->next != NULL && !found){
-    if(header->next->data = x){
+    if(header->next->data == x){
       found = 1;
+      header = header->next;
+      continue;
     }
     pos++;
     header = header->next;

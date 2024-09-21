@@ -1,5 +1,5 @@
 #include "plistlib.h"
-// #include "demo.h"
+
 int main (){
     int temp;
     List L;
@@ -9,13 +9,13 @@ int main (){
     print(L);
 
     printf("--------------------APPEND FUNCTION-------------------------\n");
-    for(int i = 15; i > 7; i--){
+    for(int i = 23; i > 7; i--){
         append(i,&L);
     }   
     print(L);
 
     //-DONE
-    printf("\n--------------------LENGTH FUNCTION-------------------------\n");
+    printf("--------------------LENGTH FUNCTION-------------------------\n");
     printf("Length: %d", len(L));
 
     printf("\n-------------GET AT POSITION FUNCTION-------------------------\n");
@@ -35,6 +35,7 @@ int main (){
     temp = 4;
     printf("\nCurrent: %d\n",popFirst(&L));
     printf("New value at first: %d\n",retrieve(first(L),L));
+    print(L);
     printf("Current: %d\n",popLast(&L));
     printf("New value at last: %d\n",retrieve(end(L),L));
     print(L);
@@ -50,13 +51,14 @@ int main (){
     insertAt(temp, 60,&L);
     printf("\nInsert at %d: %d\n",temp, getAt(temp,L));
     print(L);
+    temp = 9;
     setAt(temp, 70, &L);
     // print(L);
     printf("\nSet at %d: %d\n",temp, getAt(temp,L));
     print(L);
 
-    printf("\n---------------------LOCATE--------------------------------------\n");
-    temp = 9;
+    printf("---------------------LOCATE--------------------------------------\n");
+    temp = 55;
     printf("Locate %d: %d\n",temp, locate(temp,L));
     printf("value: %d\n", getAt(locate(temp,L),L));
 
