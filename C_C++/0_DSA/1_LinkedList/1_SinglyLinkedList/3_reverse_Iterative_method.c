@@ -23,7 +23,7 @@ Node *reverse(Node *head){
     {
         next = current->next; // giữ tạm địa chỉ thằng thứ 2, 
         current->next = previous; //giữ địa chỉ của tk trước đó, ban đầu là NULL
-        previous->next = current; // trỏ tới địa chỉ của current, ban đầu là head
+        previous = current; // trỏ tới địa chỉ của current, ban đầu là head
         current = next; // cập nhật head
     }
     head = previous;
@@ -31,5 +31,5 @@ Node *reverse(Node *head){
     
 }
 int main (){
-
+ 
 }
