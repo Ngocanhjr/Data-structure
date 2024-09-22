@@ -145,14 +145,14 @@ ElementType popAt(Position p, List *L)
         printf("invalid position!\n");
         exit(EXIT_FAILURE);
     }
-    else 
+    else
     {
         for (int i = p; i < L->size; i++)
         {
             L->element[i - 1] = L->element[i];
         }
         L->size--;
-        return getAt(p, *L);    
+        return getAt(p, *L);
     }
 }
 
@@ -172,7 +172,8 @@ void append(ElementType x, List *L)
     if (fullList(*L))
     {
         printf("List is full!\n");
-        exit(EXIT_FAILURE);;
+        exit(EXIT_FAILURE);
+        ;
     }
     else
     {
@@ -232,7 +233,7 @@ void sort(List *L)
         {
             if (getAt(p, *L) > getAt(q, *L)) // dua thang min ve dau
             {
-                swap(&L->element[p - 1],&L->element[q - 1]);
+                swap(&L->element[p - 1], &L->element[q - 1]);
             }
             q = next(q, *L);
         }

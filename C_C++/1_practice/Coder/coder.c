@@ -1,7 +1,8 @@
 // #include "acoderlib.h"
 #include "pcoderlib.h"
 
-int main (){
+int main()
+{
     List source;
     makeNull(&source);
     printf("_____________________SOURCE___________________\n");
@@ -12,10 +13,10 @@ int main (){
     */
     // int len = source.size;
     // printf("%d", len);
-    
+
     /*
     Test len function function _LINKED LIST
-    */ 
+    */
     // int len = length(source);
     // printf("%d", len);
     printf("_____________________KEY___________________\n");
