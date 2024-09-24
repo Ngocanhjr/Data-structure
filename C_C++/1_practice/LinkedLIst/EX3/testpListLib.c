@@ -1,11 +1,12 @@
 #include <conio.h>
-#include "plistlib.h"
-
+// #include "plistlib.h"
+#include "alistlib.h"
 int a[] = {32, 51, 27, 83, 66, 11, 45, 75};
 
 // a.ham nhap theo thu tu nhap
 void appendList(int a[], int n, List *L)
 {
+	makeNull(L);
 	for (int i = 0; i < n; i++)
 	{
 		append(a[i], L);

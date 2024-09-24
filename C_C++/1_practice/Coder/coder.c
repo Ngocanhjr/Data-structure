@@ -20,6 +20,7 @@ int main()
     // int len = length(source);
     // printf("%d", len);
     printf("_____________________KEY___________________\n");
+    printf("Enter key\n");
     List key = read();
     print(key);
     printf("_____________________CODE___________________\n");
