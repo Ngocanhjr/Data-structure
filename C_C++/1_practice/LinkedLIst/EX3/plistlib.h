@@ -137,7 +137,7 @@ PNode end(List L)
 /*
 Update the element at position p by a new value
 */
-void setAt(Position p, ElementType x, List *L)
+void  setAt(Position p, ElementType x, List *L)
 {
   if (isValid(p, *L))
   {

@@ -3,36 +3,47 @@
 
 typedef int ElementType;
 
-typedef struct node{
+typedef struct node
+{
     ElementType data;
     struct node *next;
-}Node;
+} Node;
 
 typedef Node *Stack;
 
-void makeNull(Stack *S){
-    Stack createEmpty  = (Node*)malloc(sizeof(Node));  
+void makeNull(Stack *S)
+{
+    Stack createEmpty = (Node *)malloc(sizeof(Node));
     createEmpty->next = NULL;
     (*S) = createEmpty;
 }
 
-void len(Stack S){
+int isEmpty(Stack S)
+{
+    return S->next == NULL;
+}
+
+void len(Stack S)
+{
     int size = 0;
-    while (S->next != NULL){
+    while (S->next != NULL)
+    {
         size++;
         S = S->next;
     }
 }
 
-void push (ElementType x, Stack *S){
-    Stack newNode = (Node*)malloc(sizeof(Node));
+void push(ElementType x, Stack *S)
+{
+    Stack newNode = (Node *)malloc(sizeof(Node));
     makeNull(&newNode);
     newNode->data = x;
     newNode->next = (*S)->next;
     (*S)->next = newNode;
 }
 
-ElementType pop(Stack *S){
+ElementType pop(Stack *S)
+{
     ElementType value = (*S)->next->data;
     Stack del = (*S)->next;
     (*S)->next = del->next;
@@ -40,26 +51,31 @@ ElementType pop(Stack *S){
     return value;
 }
 
-ElementType top (Stack S){
+ElementType top(Stack S)
+{
     return S->next->data;
 }
 
-void print(Stack S){
+void print(Stack S)
+{
     printf("Stack : ");
-    while (S->next != NULL){
+    while (S->next != NULL)
+    {
         printf("%d ", S->next->data);
-        S= S->next;
+        S = S->next;
     }
     printf("\n");
 }
 
-Stack read(){
-    Stack newStack = (Node*)malloc(sizeof(Node));
+Stack read()
+{
+    Stack newStack = (Node *)malloc(sizeof(Node));
     makeNull(&newStack);
-    int size; 
+    int size;
     printf("Enter size of stack: ");
     scanf("%d", &size);
-    for(int i = 0; i < size; i++){
+    for (int i = 0; i < size; i++)
+    {
         // ElementType temp;
         // scanf("%d", temp);
         push(i, &newStack);

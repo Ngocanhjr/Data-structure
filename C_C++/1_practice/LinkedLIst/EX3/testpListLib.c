@@ -1,6 +1,6 @@
 #include <conio.h>
-// #include "plistlib.h"
-#include "alistlib.h"
+#include "plistlib.h"
+// #include "alistlib.h"
 int a[] = {32, 51, 27, 83, 66, 11, 45, 75};
 
 // a.ham nhap theo thu tu nhap

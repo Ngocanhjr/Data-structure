@@ -1,7 +1,8 @@
 /*
- Dynamic array
+ Dynamic array 
 */
 
+// ################### ERROR ###################################
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,7 +18,7 @@ typedef struct
 void makeNull(Stack *S)
 {
     S->elements = (ElementType *)malloc(sizeof(ElementType));
-    S->capacity = 1;
+    S->capacity = -1; //không dùng phần tử đầu tiên
     S->top = -1;
 }
 
@@ -40,14 +41,20 @@ void resize(Stack *S, int newCapacity)
 
 void push(ElementType x, Stack *S)
 {
-    if (isEmpty(*S))
-    {
-        S->elements = (ElementType *)malloc(sizeof(ElementType));
-    }
-    else
-    {
-        // S->elements = (ElementType*)realloc(S->elements, (S->top + 2)*sizeof(ElementType));
-        // resize(S, S->capacity + 2);
+    // if (isEmpty(*S))
+    // {
+    //     S->elements = (ElementType *)malloc(sizeof(ElementType));
+    // }
+    // else
+    // {
+    //     // S->elements = (ElementType*)realloc(S->elements, (S->top + 2)*sizeof(ElementType));
+    //     // resize(S, S->capacity + 2);
+    //     resize(S, S->capacity * 2);
+    // }
+    // S->top++;
+    // S->elements[S->top] = x;
+
+    if(S->top == S->capacity - 1){
         resize(S, S->capacity * 2);
     }
     S->top++;

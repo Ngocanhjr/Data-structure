@@ -49,10 +49,6 @@ void print(List L)
     }
 }
 
-void append(ElementType x, List L)
-{
-}
-
 List read()
 {
     List init;
