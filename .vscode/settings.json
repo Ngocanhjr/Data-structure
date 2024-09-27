@@ -1,6 +1,0 @@
-{
-    "cmake.options.statusBarVisibility": "visible",
-    "files.associations": {
-        "stdlib.h": "c"
-    }
-}
