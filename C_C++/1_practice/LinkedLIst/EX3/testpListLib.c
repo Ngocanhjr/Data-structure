@@ -22,6 +22,11 @@ void reverseList(int a[], int n, List *L)
 	}
 }
 
+void swap(Position p, Position q, List *L){
+	int temp = getAt(p, *L);
+	setAt(p, getAt(q, *L), L);
+	setAt(q, temp, L);
+}
 // ham sap xep bubble sort
 void bubbleSort(List *L)
 {
@@ -34,9 +39,7 @@ void bubbleSort(List *L)
 			if (getAt(j, *L) > getAt(j + 1, *L))
 			{
 				isSorted = 0;
-				int temp = getAt(j, *L);
-				setAt(j, getAt(j + 1, *L), L);
-				setAt(j + 1, temp, L);
+				swap(j, j + 1, L);
 			}
 		}
 		if (isSorted)

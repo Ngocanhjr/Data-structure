@@ -216,7 +216,7 @@ Position previous(Position p, List L)
     return p - 1;
 }
 
-void swap(ElementType *x, ElementType *y)
+void swap_demo(ElementType *x, ElementType *y)
 {
     ElementType tmp = *x;
     *x = *y;
@@ -233,7 +233,7 @@ void sort(List *L)
         {
             if (getAt(p, *L) > getAt(q, *L)) // dua thang min ve dau
             {
-                swap(&L->element[p - 1], &L->element[q - 1]);
+                swap_demo(&L->element[p - 1], &L->element[q - 1]);
             }
             q = next(q, *L);
         }
