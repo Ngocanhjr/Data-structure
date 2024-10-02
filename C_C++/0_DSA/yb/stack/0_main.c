@@ -121,6 +121,6 @@ int main()
     // printf("%d \n", top(s));
     // Stack result = convertBinary(45);
     // print(result);
-    fibo(30);
+    fibo(10);
     combinatorics(15, 3);
 }
