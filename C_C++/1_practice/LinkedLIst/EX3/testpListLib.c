@@ -1,6 +1,6 @@
-#include <conio.h>
-#include "plistlib.h"
-// #include "alistlib.h"
+// #include <conio.h>
+// #include "plistlib.h"
+#include "alistlib.h"
 int a[] = {32, 51, 27, 83, 66, 11, 45, 75};
 
 // a.ham nhap theo thu tu nhap
@@ -22,8 +22,34 @@ void reverseList(int a[], int n, List *L)
 	}
 }
 
+void swap(Position p, Position q, List *L){
+	int temp = getAt(p, *L);
+	setAt(p, getAt(q, *L), L);
+	setAt(q, temp, L);
+}
 // ham sap xep bubble sort
 void bubbleSort(List *L)
+{
+	int size = len(*L);
+	for (int i = first(*L); i < size; i++)
+	{
+		int isSorted = 1;
+		for (int j = first(*L); j <= size - i; j++)
+		{
+			if (getAt(j, *L) > getAt(j + 1, *L))
+			{
+				isSorted = 0;
+				swap(j, j + 1, L);
+			}
+		}
+		if (isSorted)
+		{
+			break;
+		}
+	}
+}
+
+void bubbleSort_plist(List *L)
 {
 	int size = len(*L);
 	for (int i = 0; i < size; i++)
@@ -46,7 +72,7 @@ void bubbleSort(List *L)
 	}
 }
 
-// hàm chinh de chay chuong trinh
+// hï¿½m chinh de chay chuong trinh
 int main(int argc, char *argv[])
 {
 	List L1;
