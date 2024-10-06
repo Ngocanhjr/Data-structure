@@ -61,16 +61,19 @@ void push(ElementType x, Stack *S)
     S->elements[S->top] = x;
 }
 
-void pop(Stack *S)
+ElementType pop(Stack *S)
 {
+    int value;
     if (!isEmpty(*S))
     {
         if (S->top == 0)
         {
+            value = S->elements[S->top];
             free(S->elements);
         }
         else
         {
+            value = S->elements[S->top];
             ElementType *temp;
             temp = (ElementType *)malloc(sizeof(ElementType) * (S->top));
             for (int i = 0; i < S->top; i++)
@@ -81,6 +84,7 @@ void pop(Stack *S)
             S->elements = temp;
         }
         S->top--;
+        return value;
     }
     else
     {

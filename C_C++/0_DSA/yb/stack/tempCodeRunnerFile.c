@@ -1,2 +1,5 @@
- // Stack result = convertBinary(45);
-    // print(result);
+Stack s;
+    s = read();
+    print(s);
+    printf("Value of top: ");
+    printf("%d \n", top(s));

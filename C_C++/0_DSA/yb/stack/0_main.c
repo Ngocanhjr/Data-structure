@@ -2,25 +2,25 @@
 // #include "dstacklib.h"
 #include "pstacklib.h"
 
-Stack convertBinary(ElementType n)
-{
-    if (n == 0)
-    {
-        return 0;
-    }
-    Stack binary = (Node *)malloc(sizeof(Node));
-    makeNull(&binary);
-    while (n != 0)
-    {
-        ElementType temp;
-        temp = n % 2;
-        push(temp, &binary);
-        n /= 2;
-    }
-    return binary;
-}
+// Stack convertBinary(ElementType n)
+// {
+//     if (n == 0)
+//     {
+//         return 0;
+//     }
+//     Stack binary = (Node *)malloc(sizeof(Node));
+//     makeNull(&binary);
+//     while (n != 0)
+//     {
+//         ElementType temp;
+//         temp = n % 2;
+//         push(temp, &binary);
+//         n /= 2;
+//     }
+//     return binary;
+// }
 
-void fibo(int n)
+void Fibo(int n)
 {
     ElementType result = 0;
     Stack store;
@@ -114,13 +114,15 @@ void combinatorics(ElementType n, ElementType k)
 
 int main()
 {
-    // Stack s;
-    // s = read();
-    // print(s);
-    // printf("Value of top: ");
-    // printf("%d \n", top(s));
+    Stack s;
+    s = read();
+    print(s);
+    printf("Value of top: ");
+    printf("%d \n", top(s));
     // Stack result = convertBinary(45);
     // print(result);
-    fibo(10);
+
+    Fibo(30);
+
     combinatorics(15, 3);
 }
