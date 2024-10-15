@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=2
+UnitCount=4
 
 [VersionInfo]
 Major=1
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=aqueuelib.h
+FileName=alistlib.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -61,7 +61,27 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=MainAQueue.cpp
+FileName=plistlib.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit3]
+FileName=test.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
+FileName=aqueuelib.h
 CompileCpp=1
 Folder=
 Compile=1

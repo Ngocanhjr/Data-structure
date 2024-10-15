@@ -1,75 +1,69 @@
 #include <stdio.h>
 
-#define MAX_LENGTH 9
+#define MAX_LENGTH 10
+#define EMPTY_QUEUE_ERROR -99
 
 typedef int ElementType;
-typedef int Position;
 
-typedef struct queue
+typedef struct tag
 {
-    ElementType elements[MAX_LENGTH];
-    Position front, rear;
+	ElementType elements[MAX_LENGTH];
+	int front, rear;
 } Queue;
 
 void makeNull(Queue *Q)
 {
-    Q->front = -1;
-    Q->rear = -1;
+	Q->front = 0;
+	Q->rear = 0;
 }
 
 int isEmpty(Queue Q)
 {
-    return Q.front == -1;
+	return Q.front == Q.rear;
 }
 
 int size(Queue Q)
 {
-    return Q.rear - Q.front;
+	return Q.rear - Q.front;
 }
 
 int isFull(Queue Q)
 {
-    return Q.rear - Q.front == MAX_LENGTH;
+	return Q.rear - Q.front == MAX_LENGTH;
 }
 
 ElementType front(Queue Q)
 {
-    if (!isEmpty(Q))
-    {
-        return Q.elements[Q.front];
-    }
-    printf(">>>>Empty<<<");
-    return -99;
+	if (!isEmpty(Q))
+	{
+		return Q.elements[Q.front];
+	}
+	printf(">>>>Empty<<<");
+	return EMPTY_QUEUE_ERROR;
 }
 
 void shift(Queue *Q)
 {
-    int lengthShift = Q->front;
-    int size = Q->rear;
+	int front = Q->front;
+    int rear = Q->rear;
     int i;
-    for (i = lengthShift; i < size; i++)
-    {
-        Q->elements[i - lengthShift] = Q->elements[i];
-    }
-    Q->rear = i - lengthShift;
-    Q->front = 0;
+	for (i = front; i < rear; i++)
+	{
+		Q->elements[i - front] = Q->elements[i];
+	}
+	Q->rear = i - front;
+	Q->front = 0;
 }
 
-void enQueue(ElementType x, Queue *Q)
+void enQueue(ElementType x, Queue *Q) //diff
 {
-    if (isEmpty(*Q))
-    {
-        Q->front = 0;
-        Q->rear = 0;
-    }
     if (!isFull(*Q))
     {
         if (Q->rear == MAX_LENGTH)
         {
             shift(Q);
         }
-        Q->elements[Q->rear] = x;
-        Q->rear++;
+        Q->elements[Q->rear++] = x; // diff
     }
     else
     {
@@ -82,14 +76,13 @@ ElementType deQueue(Queue *Q)
     int value;
     if (!isEmpty(*Q))
     {
-        if (Q->front == Q->rear)
+        value = front(*Q);
+        if (Q->front == Q->rear - 1)
         {
-            value = front(*Q);
             makeNull(Q);
         }
         else
         {
-            value = front(*Q);
             Q->front++;
         }
         return value;
@@ -97,7 +90,7 @@ ElementType deQueue(Queue *Q)
     else
     {
         printf(">>>>Empty<<<<");
-        return -99;
+        return EMPTY_QUEUE_ERROR;
     }
 }
 
