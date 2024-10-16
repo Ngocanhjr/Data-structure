@@ -59,14 +59,14 @@ void printS(Stack S);
 
 void makeNullQ(Queue *Q)
 {
-    Q->front = 0;
+    Q->front = -1;
     Q->rear = Q->front;
     Q->identityProduct = 0;
 }
 
 int isEmptyQ(Queue Q)
 {
-    return Q.front == Q.rear;
+    return Q.front == -1;
 }
 
 int lenQ(Queue Q)
@@ -83,28 +83,36 @@ void enQueue(ElementType x, Queue *Q)
 {
     if (!isFullQ(*Q))
     {
-        Q->elements[Q->rear] = x;
+        if (isEmptyQ(*Q))
+        {
+            Q->front = 0;
+            ;
+        }
         Q->rear = (Q->rear + 1) % MAX_LENGTH;
+        Q->elements[Q->rear] = x;
     }
     else
     {
-        printf("<!> Queue is full. Can't enQueue %d\n", x);
+        printf("<!> Queue is full.");
     }
 }
 
 ElementType deQueue(Queue *Q)
 {
-    int value = -1;
     if (!isEmptyQ(*Q))
     {
-        value = Q->elements[Q->front];
-        Q->front = (Q->front + 1) % MAX_LENGTH;
+        ElementType value = Q->elements[Q->front];
+        if (Q->front == Q->rear)
+            makeNullQ(Q);
+        else
+            Q->front = (Q->front + 1) % MAX_LENGTH;
+            return value;
     }
     else
     {
         printf("<!> Queue is empty.");
+        return -1;
     }
-    return value;
 }
 
 ElementType front(Queue Q)
@@ -121,17 +129,20 @@ ElementType front(Queue Q)
 
 void printQ(Queue Q)
 {
-    if (!isEmptyQ(Q))
+    if (isEmptyQ(Q))
     {
-        int sz = lenQ(Q);
-        for (int i = 0; i < sz; i++)
-            printf("%d ", Q.elements[(i + Q.front) % MAX_LENGTH]);
-        printf("\n");
+        printf("Queue is empty.\n");
+        return;
     }
-    else
+
+    printf("Queue elements: ");
+    int i = Q.front;
+    while (i != Q.rear)
     {
-        printf(">>>>>>>>>>EMPTY QUEUE<<<<<<<<<<!\n");
+        printf("%d ", Q.elements[i]);
+        i = (i + 1) % MAX_LENGTH;
     }
+    printf("%d\n", Q.elements[Q.rear]); // In phần tử cuối cùng
 }
 
 void makeNullS(Stack *S)
@@ -183,11 +194,13 @@ ElementType top(Stack S)
 
 void printS(Stack S)
 {
+    printf("Stack elements: ");
     while (!isEmptyS(S))
     {
         printf("%d ", top(S));
         pop(&S);
     }
+    printf("\n");
 }
 
 void reverseStack(Stack *S)

@@ -15,8 +15,7 @@ int main (){
     printS(S);
     reverseStack(&S);
     printS(S);
-    printf("\n");
-    
+
     printf("--------------------------Test Queue------------------\n");
     for(int i = 0; i < 5; i++){
         enQueue(i,&Q);
