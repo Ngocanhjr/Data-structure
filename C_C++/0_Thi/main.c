@@ -83,7 +83,9 @@ void print(List L)
     //     printf("List is full!\n");
     // }
     // printf("List of element: ");
-    for (int i = 1; i < endList(L); i++)
+    int begin = first(L);
+    int end = endList(L);
+    for (int i = begin; i < end; i++)
     {
         printf("%d ", getAt(i, L));
     }
@@ -109,7 +111,7 @@ void setAt(Position p, ElementType x, List *L)
 {
     if (p < 1 || p > len(*L))
     {
-        printf("invalid position!\n");
+        // printf("invalid position!\n");
         return;
     }
     L->element[p - 1] = x;
@@ -117,14 +119,14 @@ void setAt(Position p, ElementType x, List *L)
 
 void insertAt(Position p, ElementType x, List *L)
 {
-    if (p < 1 || p > len(*L))
+    if (p < 1 || p > len(*L) + 1)
     {
-        printf("invalid position!\n");
+        // printf("invalid position!\n");
         return;
     }
     else if (fullList(*L))
     {
-        printf("List is full!\n");
+        // printf("List is full!\n");
         return;
     }
     else
@@ -142,17 +144,18 @@ ElementType popAt(Position p, List *L)
 {
     if (p < 1 || p > len(*L))
     {
-        printf("invalid position!\n");
+        // printf("invalid position!\n");
         exit(EXIT_FAILURE);
     }
-    else 
+    else
     {
+        int value = L->element[p - 1];
         for (int i = p; i < L->size; i++)
         {
             L->element[i - 1] = L->element[i];
         }
         L->size--;
-        return getAt(p, *L);    
+        return value;
     }
 }
 
@@ -163,16 +166,17 @@ void insertFirst(ElementType x, List *L)
 
 ElementType popFirst(List *L)
 {
-    popAt(1, L);
-    return getAt(first(*L), *L);
+    int value = popAt(1, L);
+    return value;
 }
 
 void append(ElementType x, List *L)
 {
     if (fullList(*L))
     {
-        printf("List is full!\n");
-        exit(EXIT_FAILURE);;
+        // printf("List is full!\n");
+        exit(EXIT_FAILURE);
+        ;
     }
     else
     {
@@ -215,7 +219,7 @@ Position previous(Position p, List L)
     return p - 1;
 }
 
-// void swap(ElementType *x, ElementType *y)
+// void swap_demo(ElementType *x, ElementType *y)
 // {
 //     ElementType tmp = *x;
 //     *x = *y;
@@ -232,7 +236,7 @@ Position previous(Position p, List L)
 //         {
 //             if (getAt(p, *L) > getAt(q, *L)) // dua thang min ve dau
 //             {
-//                 swap(&L->element[p - 1],&L->element[q - 1]);
+//                 swap_demo(&L->element[p - 1], &L->element[q - 1]);
 //             }
 //             q = next(q, *L);
 //         }
@@ -240,11 +244,3 @@ Position previous(Position p, List L)
 //     }
 // }
 
-// void build(ElementType A[], int n, List *L)
-// {
-//     for (int i = 0; i < n; i++)
-//     {
-//         L->element[i] = A[i];
-//     }
-//     L->size = n;
-// }
