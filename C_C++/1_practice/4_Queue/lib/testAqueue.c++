@@ -1,10 +1,11 @@
 // #include "aqueuelib.h"
-// #include "acirclequeuelib.h"
+// #include "err_acirclequeuelib.h"
 // #include "pqueuelib.h"
-#include "demo.h"
+#include "acirclequeuelib.h"
+
 
 int main (){
-	printf("helo\n");
+	printf("hello\n");
 	Queue Q;
 	makeNull(&Q);
 	for(int i = 1; i < 11 ; i++){
@@ -12,41 +13,53 @@ int main (){
 	}
 	print(Q);
 	
-	printf("\n");
+	printf("-------------------DEQUEUE-------------------\n");
 	for(int i = 1; i <= 4; i++){
 		deQueue(&Q);
 	}
 	print(Q);
+	printf("Length: %d\n",len(Q));
 
+	printf("-------------------ENQUEUE 5-------------------\n");
 	for(int i = 1; i <=5 ; i++){
 		enQueue(i,&Q);
 	}
-	printf("\n");
 	print(Q);
+	printf("Length: %d\n",len(Q));
 
-	printf("\n");
+	printf("-------------------DEQUEUE 4-------------------\n");
 	for(int i = 1; i <= 4; i++){
 		deQueue(&Q);
 	}
-
-	printf("\n");
 	print(Q);
+	printf("Length: %d\n",len(Q));
 
+	printf("-------------------ENQUEUE 2-------------------\n");
 	for(int i = 1; i <=2 ; i++){
 		enQueue(i,&Q);
 	}
-	printf("\n");
 	print(Q);
+	printf("Length: %d\n",len(Q));
+
+	printf("-------------------MAKE NULL-------------------\n");
     makeNull(&Q);
     print(Q);
+	printf("Length: %d\n",len(Q));
 
+	printf("-------------------ENQUEUE 1-------------------\n");
 	enQueue(1,&	Q);
 	print(Q);
+	printf("Length: %d\n",len(Q));
+
+	printf("-------------------DEQUEUE-------------------\n");
 	int x = deQueue(&Q);
-	printf("\n%d\n",x);
+	printf("Data delete: %d\n",x);
 	print(Q);
+	printf("Length: %d\n",len(Q));
+
+	printf("-------------------ENQUEUE 10-------------------\n");
 	for(int i = 1; i <= 10; i++){
 		enQueue(i,&Q);
 	}
-	printf("%d\n",len(Q));
+	printf("Length: %d\n",len(Q));
 }

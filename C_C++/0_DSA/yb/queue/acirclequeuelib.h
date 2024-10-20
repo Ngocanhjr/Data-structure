@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_LENGTH 100
+#define MAX_LENGTH 10
 
 typedef int ElementType;
 
@@ -27,7 +27,9 @@ int isEmpty(Queue Q)
 
 int len(Queue Q)
 {
-    return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH;
+    if(isEmpty(Q))
+        return 0;
+    return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH + 1;
 }
 
 int isFull(Queue Q)
@@ -45,7 +47,7 @@ void enQueue(ElementType x, Queue *Q)
         }
        
         Q->rear = (Q->rear + 1) % MAX_LENGTH;
-         Q->elements[Q->rear] = x;
+        Q->elements[Q->rear] = x;
     }
     else
     {

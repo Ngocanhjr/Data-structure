@@ -85,3 +85,19 @@ Stack read()
     }
     return createNew;
 }
+
+// Stack readS()
+// {
+//     Stack createNew;
+//     makeNull(&createNew);
+//     int size;
+//     printf("Enter size of stack: ");
+//     scanf("%d", &size);
+//     for (int i = 0; i < size; i++)
+//     {
+//         int temp;
+//         scanf("%d", &temp);
+//         push(temp, &createNew);
+//     }
+//     return createNew;
+// }

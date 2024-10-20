@@ -71,7 +71,9 @@ int isEmptyQ(Queue Q)
 
 int lenQ(Queue Q)
 {
-    return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH;
+    if(isEmptyQ(Q))
+        return 0;
+    return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH + 1;
 }
 
 int isFullQ(Queue Q)

@@ -33,7 +33,7 @@ void push(ElementType x, Stack *S)
 {
     if (isFullS(*S))
     {
-        printf("<!> Stack is full");
+        printf("<!> Stack is full. Can't push %d\n", x);
     }
     else
     {
@@ -71,18 +71,3 @@ void printS(Stack S)
     printf("\n");
 }
 
-// Stack readS()
-// {
-//     Stack createNew;
-//     makeNull(&createNew);
-//     int size;
-//     printf("Enter size of stack: ");
-//     scanf("%d", &size);
-//     for (int i = 0; i < size; i++)
-//     {
-//         int temp;
-//         scanf("%d", &temp);
-//         push(temp, &createNew);
-//     }
-//     return createNew;
-// }

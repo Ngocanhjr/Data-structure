@@ -1,8 +1,9 @@
 /*
 ################# FIFO ##################
 */
-#include "aqueulib.h"
-// #include "acirclequeuelib.h"
+// #include "aqueulib.h"
+#include "acirclequeuelib.h"
+// #include ""E:\RHNA\Visual\2_Data structure\CTUer\C_C++\1_practice\4_Queue\EX5\Circularqueuelib.h""
 // #include "pqueulib.h"
 
 void readQueue(Queue *Q)

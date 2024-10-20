@@ -1,9 +1,7 @@
-// ################################# USING ##################################
-
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_LENGTH 10
+#define MAX_LENGTH 5
 
 typedef int ElementType;
 
@@ -26,7 +24,9 @@ int isEmpty(Queue Q)
 
 int len(Queue Q)
 {
-    return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH;
+    if(isEmpty(Q))
+        return 0;
+    return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH + 1;
 }
 
 int isFull(Queue Q)
@@ -48,7 +48,7 @@ void enQueue(ElementType x, Queue *Q)
     }
     else
     {
-        printf("<!> Queue is full.");
+        printf("<!> Queue is full. Can't enQueue %d\n", x);
     }
 }
 
@@ -65,7 +65,7 @@ ElementType deQueue(Queue *Q)
     }
     else
     {
-        printf("<!> Queue is empty.");
+        printf("<!> Queue is empty. ");
         return -1;
     }
 }
