@@ -16,28 +16,21 @@ void printList(List L) {
         printf("List is empty!\n"); 
         return;
     }
-    if (fullList(L)) {
-        printf("List is full!\n");
-    }
     printf("List of element: ");
-    // for (int i = first(L); i < endList(L); i++) {
-    //     printf("%d ", getAt(i, L));
-    // }
-    int i = first(L);
-    while (i <=  len(L)) {
+    for (int i = 1; i <= len(L); i++) {
         printf("%d ", getAt(i, L));
-        i = next(i, L);
     }
+
     printf("\n");
 }
 
 void swap(Position a, Position b, List* L) {
-    int temp = getAt(a, *L);
+    ElementType temp = getAt(a, *L);
     setAt(a, getAt(b, *L), L);
     setAt(b, temp, L);
 }
-// #########################Bubble sort###########################
-void bubbleSort(List* L) {
+// // #########################Bubble sort###########################
+void bubbleSort(List* L) { 
     int length = len(*L);
     for (int i = 1; i < length; i++) {
         for (int j = 1; j <= length - i; j++) {
@@ -48,5 +41,30 @@ void bubbleSort(List* L) {
     }
 }
 // ########################Selection sort#########################
+void selectionSort(List * L){
+    int length = len(*L);
+    for(int i = 1; i < length; i ++){
+        int minPos = i;
+        for(int j = i + 1; j < length + 1; j++){
+            if(getAt(minPos, (*L)) > getAt(j, (*L))){
+                minPos = j; 
+            }
+        }
+        swap(i, minPos, L);
+    }
+}
 // #########################Insertion sort########################
+void insertionSort(List *L){
+    int length = len (*L);
+    for(int i = 1; i <= length; i++){
+        ElementType temp = getAt(i,(*L));
+        int pos = i;
+        ///compare a[i] va a[i - 1]
+        while(pos > 1 && getAt(pos - 1, *L) > temp){
+            setAt(pos,getAt(pos - 1, *L), L);
+            pos-=1; 
+        }
+        setAt(pos,temp, L);
+    }
+}
 // #########################Shell sort############################

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 typedef int ElementType;
+
 typedef int Position;
 
 typedef struct NodeTag {
@@ -10,6 +11,7 @@ typedef struct NodeTag {
 } Node;
 
 typedef Node* List;
+
 typedef Node* PNode;
 
 /*
@@ -50,7 +52,7 @@ int fullList(List L) {
 Check position is valid?
 */
 int isValid(Position p, List L) {
-    if (p >= 0 && p <= len(L)) return 1;
+    if (p > 0 && p <= len(L)) return 1;
     return 0;
 }
 
@@ -61,6 +63,7 @@ void print(List L) {
     if (empty(L)) {
         printf("<!> List is empty!");
     } else {
+        printf("List of element: ");
         while (L->next != NULL) {
             printf("%d ", L->next->data);
             L = L->next;
@@ -74,7 +77,7 @@ Return the pointer referring to the ith element
 */
 PNode getPosition(Position p, List L) {
     if (isValid(p, L)) {
-        int found = 0;
+        int found = 1;  // fix 0 index base to 1 index base
         PNode pos = L;
         while (pos->next != NULL && found < p) {
             found++;

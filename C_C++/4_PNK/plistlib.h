@@ -95,3 +95,16 @@ Position locate(ElementType x, List* L) {
     }
     return header;
 }
+// Position locate1_K(ElementType x, List* L) {
+//     int found = 0;
+//     Position p = 1, q = end(L);
+//     while (p != q && !found) {
+//         if (L->elements[p - 1] == x) {
+//             found = p;
+//         } else {
+//             p = p + 1;
+//         }
+//     }
+//     found = (found == 0) ? end(L) : found;
+//     return found;
+// }
