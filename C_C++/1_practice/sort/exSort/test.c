@@ -6,7 +6,7 @@ int main() {
 
     makeNull(&L);
 
-    int a[] = { 3, 7, 8, 5, 4, 2, 6, 1};
+    int a[] = {3, 7, 8, 5, 4, 2, 6, 1};
     int b[] = {100, 3, 2, 5, 44, 12, 9, 8, 10, 6, 10, 11};
     int c[] = {110};
     int d[] = {0};
@@ -22,7 +22,8 @@ int main() {
     printf("Length of list: %d\n", len(L));
     // bubbleSort(&L);
     // selectionSort(&L);
-    insertionSort(&L);
+    // insertionSort(&L);
+    shellSort(&L);
     printList(L);
 
     printf("##################################################\n");
@@ -33,7 +34,8 @@ int main() {
     printf("Length of list: %d\n", len(L));
     // bubbleSort(&L);
     // selectionSort(&L);
-    insertionSort(&L);
+    // insertionSort(&L);
+    shellSort(&L);
     printList(L);
 
     printf("##################################################\n");
@@ -44,7 +46,8 @@ int main() {
     printf("Length of list: %d\n", len(L));
     // bubbleSort(&L);
     // selectionSort(&L);
-    insertionSort(&L);
+    // insertionSort(&L);
+    shellSort(&L);
     printList(L);
 
     printf("##################################################\n");
@@ -55,7 +58,8 @@ int main() {
     printf("Length of list: %d\n", len(L));
     // bubbleSort(&L);
     // selectionSort(&L);
-    insertionSort(&L);
+    // insertionSort(&L);
+    shellSort(&L);
     printList(L);
 
     return 0;

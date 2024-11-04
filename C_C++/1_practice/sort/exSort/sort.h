@@ -68,3 +68,17 @@ void insertionSort(List *L){
     }
 }
 // #########################Shell sort############################
+void shellSort(List *L){
+    int length = len(*L);
+    for(int gap = length / 2; gap >= 1; gap /= 2){
+        for(int i = gap; i <= length; i++){
+            for(int j = i - gap; j >= 0; j -= gap){
+                if(getAt(j, *L) > getAt(j + gap, *L)){
+                    swap(j, j + gap, L);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+}
