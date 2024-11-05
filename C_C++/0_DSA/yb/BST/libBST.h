@@ -73,7 +73,9 @@ KeyType deleteMin(Tree* T) {
     KeyType k;
     if ((*T)->left == NULL) {
         k = (*T)->key;
+        Tree temp = *T;
         (*T) = (*T)->right;
+        free(temp);
         return k;
     } else {
         return deleteMin(&(*T)->left);
@@ -90,13 +92,19 @@ void deleteNode(KeyType x, Tree(*T)) {
         // found x
         else if (isLeaf(*T)) {
             // case 1: x is leaf
+            Tree temp = *T; 
             (*T) = NULL;  // delete x
+            free(temp);
         }
         // case 2: one subtrees
         else if ((*T)->left == NULL) {
+            Tree temp = *T;
             (*T) = (*T)->right;
+            free(temp);
         } else if ((*T)->right == NULL) {
+            Tree temp = *T;
             (*T) = (*T)->left;
+            free(temp);
         } else {
             // case 3: two subtrees
             (*T)->key = deleteMin(&(*T)->right);
