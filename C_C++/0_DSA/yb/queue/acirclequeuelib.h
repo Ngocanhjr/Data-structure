@@ -7,76 +7,59 @@
 
 typedef int ElementType;
 
-typedef struct queue
-{
+typedef struct queue {
     ElementType elements[MAX_LENGTH];
     int front, rear;
 } Queue;
 
-void makeNull(Queue *Q)
-{
+void makeNull(Queue* Q) {
     Q->front = -1;
     Q->rear == Q->front;
 }
 
-int isEmpty(Queue Q)
-{
+int isEmpty(Queue Q) {
     return Q.front == -1;
     // return Q.front == Q.rear;
 }
 
-int len(Queue Q)
-{
-    if(isEmpty(Q))
-        return 0;
+int len(Queue Q) {
+    if (isEmpty(Q)) return 0;
     return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH + 1;
 }
 
-int isFull(Queue Q)
-{
+int isFull(Queue Q) {
     //  return (Q.rear + MAX_LENGTH - Q.front) % MAX_LENGTH==0;
     return (Q.rear + 1) % MAX_LENGTH == Q.front;
 }
 
-void enQueue(ElementType x, Queue *Q)
-{
-    if (!isFull(*Q))
-    {
-        if(isEmpty(*Q)){
-            Q->front = 0;;
+void enQueue(ElementType x, Queue* Q) {
+    if (!isFull(*Q)) {
+        if (isEmpty(*Q)) {
+            Q->front = 0;
+            ;
         }
-       
+
         Q->rear = (Q->rear + 1) % MAX_LENGTH;
         Q->elements[Q->rear] = x;
-    }
-    else
-    {
+    } else {
         printf("<!> Queue is full.");
     }
 }
 
-void deQueue(Queue *Q)
-{
-    if (!isEmpty(*Q))
-    {
+void deQueue(Queue* Q) {
+    if (!isEmpty(*Q)) {
         if (Q->front == Q->rear)
             makeNull(Q);
         else
             Q->front = (Q->front + 1) % MAX_LENGTH;
-    }
-    else
+    } else
         printf("<!> Queue is empty.");
 }
 
-ElementType front(Queue Q)
-{
-    if (!isEmpty(Q))
-    {
+ElementType front(Queue Q) {
+    if (!isEmpty(Q)) {
         return Q.elements[Q.front];
-    }
-    else
-    {
+    } else {
         return -1;
     }
 }
-
