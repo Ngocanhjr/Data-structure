@@ -278,3 +278,69 @@ int get_height(Tree T) {
         return (l > r ? l : r) + 1;
     }
 }
+
+Tree getMin(Tree T) {
+    if (T == NULL) {
+        return NULL;
+    }
+    if (T->left == NULL) {
+        return T;
+    }
+    return getMin(T->left);
+}
+
+Tree getNext(int x, Tree T) {
+    Tree temp = T;
+    Tree Ancestor = NULL;  //
+    while (temp != NULL) {
+        // x nằm ngay giữa = key
+        if (x == temp->key) {
+            if (temp->right == NULL) {
+                return Ancestor;
+            } else {
+                return getMin(temp->right);
+                // con nho nhat phai, qua phai -> qua trai cho toi chet
+            }
+        }
+        // x nằm ở cây con bên trái
+        else if (x < temp->key) {
+            Ancestor = temp;
+            temp = temp->left;
+        } else {
+            temp = temp->right;
+        }
+    }
+    return NULL;
+}
+
+Tree getMax(Tree T) {
+    if (T == NULL) {
+        return NULL;
+    }
+    if (T->right == NULL) {
+        return T;
+    }
+    return getMin(T->right);
+}
+
+Tree getPrevious(int x, Tree T) {
+    Tree temp = T;
+    Tree prev = NULL;  //
+    while (temp != NULL) {
+        // find x
+        if (x == temp->key) {
+            if (temp->left == NULL) {
+                return prev;
+            } else {
+                return getMax(temp->left);
+                // con nho nhat phai, qua phai -> qua trai cho toi chet
+            }
+        } else if (x < temp->key) {
+            temp = temp->left;
+        } else {
+            prev = temp;
+            temp = temp->right;
+        }
+    }
+    return NULL;
+}
