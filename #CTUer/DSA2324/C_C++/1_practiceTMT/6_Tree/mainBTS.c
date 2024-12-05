@@ -53,7 +53,7 @@ int main() {
     NLR(T);
     printf("\n");
 
-    T  = delete_node(3, T);
+    T = delete_node(3, T);
 
     printf("Prefix: ");
     NLR(T);
