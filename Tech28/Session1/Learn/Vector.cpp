@@ -11,7 +11,7 @@ int main()
 #endif
     int n;
     cin >> n;
-    vector<int> v;     // empty
+    vector<int> v;  // empty
     // vector<int> v(n);  // co n phan tu
     // vector<int> v = {1,2,3,4,5};
     for (int i = 0; i < n; i++)
@@ -28,11 +28,12 @@ int main()
     cout << endl;
     // vector<int>::iterator it = v.begin();
     auto it = v.begin();
-    cout << *it << endl;//dereference : giai tham chieu
+    cout << *it << endl;  // dereference : giai tham chieu
 
-    //duyet su dung iterator
+    // duyet su dung iterator
 
-    for(it = v.begin(); it !=v.end(); it++){
+    for (it = v.begin(); it != v.end(); it++)
+    {
         cout << *it << " ";
     }
 }

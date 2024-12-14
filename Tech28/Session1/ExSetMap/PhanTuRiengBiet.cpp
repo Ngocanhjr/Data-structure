@@ -16,8 +16,9 @@ int main()
     set<int> s;
     for (int i = 0; i < size; i++)
     {
-        cin >> a[i];     
-        if(s.find(a[i]) == s.end()){
+        cin >> a[i];
+        if (s.find(a[i]) == s.end())
+        {
             cout << a[i] << " ";
         }
         s.insert(a[i]);

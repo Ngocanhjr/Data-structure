@@ -1,10 +1,15 @@
-7
-1 2 3 4 6 8 9 
-Iterator: 
-1 2 3 4 6 8 9 
-Reverse printing : 
-9 8 6 4 3 2 1 
-Max and min: 1 9
-End: 7
-Find: YES
-	  NO
+4
+1 2
+2 6
+3 2
+4 5
+use auto :
+1 2
+2 6
+3 2
+4 5
+use iterator: 
+1 2
+2 6
+3 2
+4 5

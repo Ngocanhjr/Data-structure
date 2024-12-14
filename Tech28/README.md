@@ -4,8 +4,8 @@
 
 - [x] ⌨ Array
 - [ ] ⌨ String
-- [ ] ⌨ Set
-- [ ] ⌨ Map
+- [x] ⌨ Set
+- [x] ⌨ Map
 
 **Sort**
 
@@ -39,7 +39,7 @@
 - Vector và Iterator
 - Pair và Auto
 
-- [ ] **Lesson 2**
+- [x] **Lesson 2**
 -	Set, Multiset, Unordered_set
 - Map, multimap, Unordered_map
 		
@@ -132,3 +132,9 @@
 
 - BT liên quan giá trị khác nhau
 - BT truy vấn nhiều phần tử trong mảng
+## Map
+    Lưu phần tử theo cập key - value
+- Các _key_ là những giá trị riêng biệt, _value_ có thể trùng nhau
+- Sắp xếp tăng dần theo key
+- Mỗi phần tử trong map thực chất là một _pair_
+- BT liên quan tần suất, tìm kiếm nhanh, đánh dấu

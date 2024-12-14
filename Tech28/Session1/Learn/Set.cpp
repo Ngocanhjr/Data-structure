@@ -50,10 +50,9 @@ int main()
     {
         cout << "NO";
     }
-    cout << endl << "\t  "; 
+    cout << endl << "\t  ";
     cout << (s.find(5) != s.end() ? "YES" : "NO");
 
-    //Ham find, erase: O(LogN)
-    //Nếu trong set không có trong set mà erase thì sẽ gây ra lỗi
-
+    // Ham find, erase: O(LogN)
+    // Nếu trong set không có trong set mà erase thì sẽ gây ra lỗi
 }

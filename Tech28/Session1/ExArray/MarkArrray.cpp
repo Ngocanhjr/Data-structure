@@ -29,7 +29,7 @@ int main()
     cout << "Number and frequency: " << endl;
     for (int i = 0; i < MAX; i++)
     {
-        if (cnt[i]!=0)
+        if (cnt[i] != 0)
         {
             cout << i << ' ' << cnt[i] << endl;
             ++countNumber;
