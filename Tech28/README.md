@@ -33,6 +33,8 @@
 - [ ] ⌨ ..
 -------
 
+## Session 1
+
 - [X] **Lesson 1**
 -  Lý thuyết mảng 1 chiều và các dạng bài tập cơ bản
 - Range base for loop
@@ -126,6 +128,29 @@
 - [ ] **Lesson 20**
 - Thuật toán Kruskal
 - Thuật toán Prim
+
+#### Session 1: 
+    Ôn tập C++, STL, các kĩ thuật giải bài
+    - Mảng, vector, xâu,set, map, pair, ..
+    - Hai con trỏ, sliding window, mảng cộng dồn, mảng hiệu
+    - Đệ quy, lý thuyết số và tổ hợp
+#### Session 2: 
+    Thuật toán
+    - Sắp xếp, tím kiếm
+    - sinh
+    - Quay lui, nhánh cận
+    - Chia và trị
+    - Tham lam
+    - Quy hoạch động
+#### Session 3: 
+    Cấu trúc dữ liệu
+    - Đồ thị và thuật toán trên đồ thị
+    - Ngăn xếp, hàng đợi
+    - Cây nhị phân
+    - Segment tree, Fenwick
+
+
+
 ## Set
 - Là tập hợp mà mỗi phần tử trong đó là duy nhất
 - Sắp xếp theo thứ tự tăng dần.
