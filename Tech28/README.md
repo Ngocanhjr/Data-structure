@@ -15,7 +15,7 @@
 - [ ] ⌨ Bin sort
 
 **Search**
-
+- [ ] ⌨ Binary search
 - [ ] ⌨ Local search
 
 **Divide And Conquer**
@@ -136,7 +136,7 @@
     - Đệ quy, lý thuyết số và tổ hợp
 #### Session 2: 
     Thuật toán
-    - Sắp xếp, tím kiếm
+    - Sắp xếp, tìm        kiếm
     - sinh
     - Quay lui, nhánh cận
     - Chia và trị
@@ -149,7 +149,9 @@
     - Cây nhị phân
     - Segment tree, Fenwick
 
-
+## Vector
+Các iterator có thể cộng trừ: ``it = it + 3;``
+- Đối với Set, Map, iterator không thể cộng trừ, chỉ có thể tăng, giảm: ``it++; it--``
 
 ## Set
 - Là tập hợp mà mỗi phần tử trong đó là duy nhất
@@ -163,3 +165,6 @@
 - Sắp xếp tăng dần theo key
 - Mỗi phần tử trong map thực chất là một _pair_
 - BT liên quan tần suất, tìm kiếm nhanh, đánh dấu
+
+Code:
+``#include <bits/stdc++.h>``

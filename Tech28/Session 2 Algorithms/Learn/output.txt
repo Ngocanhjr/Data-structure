@@ -1,0 +1,5 @@
+1 2 1 3 4 
+Search num: NO
+NOT FOUND
+SET MAP: 
+NOT FOUND
