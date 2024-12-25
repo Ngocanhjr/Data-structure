@@ -1,60 +1,74 @@
-#  DSA Contents 💻
+# DSA Contents 💻
+
 ----
-**Review**
+
+## Review
 
 - [x] ⌨ Array
 - [ ] ⌨ String
 - [x] ⌨ Set
 - [x] ⌨ Map
 
-**Sort**
+## Sort
 
 - [ ] ⌨ Basic sort
 - [ ] ⌨ Quick sort
-- [ ] ⌨ Heap short
+- [ ] ⌨ Heap sort
 - [ ] ⌨ Bin sort
 
-**Search**
+## Search
+
 - [ ] ⌨ Binary search
 - [ ] ⌨ Local search
 
-**Divide And Conquer**
+## Divide And Conquer
 
-**Greedy**
+## Greedy
 
-**Branch and bound**
+## Branch and bound
 
-**Dynamic Programming**
+## Dynamic Programming
 
-**Back Tracking**
+## Back Tracking
 
 **...**
 
 - [ ] ⌨ ..
--------
 
-## Session 1
+----
+
+## Session I
 
 - [X] **Lesson 1**
--  Lý thuyết mảng 1 chiều và các dạng bài tập cơ bản
+- Lý thuyết mảng 1 chiều và các dạng bài tập cơ bản
 - Range base for loop
 - Vector và Iterator
 - Pair và Auto
 
 - [x] **Lesson 2**
--	Set, Multiset, Unordered_set
+- Set, Multiset, Unordered_set
 - Map, multimap, Unordered_map
-		
+  
 - [ ] **Lesson 3**
 - Mảng cộng dồn 1 chiều
 - Mảng cộng dồn 2 chiều
-- Mạng hiệu
+- Mảng hiệu
 - Hướng dẫn nhanh hàm sort và comparison function
+
+  - [ ]  **Bổ trợ:**
+  - Chữa contest Mảng 1 chiều TB: B12 -> B26
+  - Giới thiệu nhanh kỹ thuật Two pointer
+  - Chữa bài Two Sum, Three Sum
 
 - [ ] **Lesson 4**
 - Hướng dẫn 21 bài đầu tiên contest mảng hiệu, 2 con trỏ
 
-- [ ] **Lesson 5**
+  - [ ]  **Bổ trợ:**
+  - Chữa hết contest Mảng 1 chiều TB: B37->B44
+  - Giới thiệu nhanh kỹ thuật Sliding window
+  - Chữa contest Sliding window: B22, B23, B27
+
+- [ ] **Lesson 5**: QHD
 - String
 - Các hàm xử lý xâu cơ bản
 - Bài toán liên quan đến tần suất
@@ -62,15 +76,20 @@
 - Mô hình di chuyển trên mảng 2 chiều
 - Tính tổ hợp chập K của N bằng mảng 2 chiều
 
-- [ ] **Lesson 6**	
+- [ ] **Lesson 6**
 - Chữa bài tập từ bài 1 tới bài 24 contest string trung bình
 - Chữa các bài tập liên quan tới loang trên mảng 2 chiều
 
-- [ ] **Lesson 7**
+- [x] **Lesson 7**
 - Lý thuyết đồng dư
 - Lũy thừa nhị phân
 - Sàng số ng tố và biến đổi
 - Lower_bound, Upper_bound
+
+  - [ ]  **Bổ trợ:**
+  - Chữa hết contest Xâu kí tự TB: 5 bài cuối
+  - Dạng bài Maximum path sum 1, 2, 3
+  - Chữa contest Mảng 2 chiều: B1, B10->13
 
 - [ ] **Lesson 8**
 - Binary_search, lower_bound, upper_bound
@@ -107,6 +126,11 @@
 - Contest làm quen dp
 - Tổ hợp chập K của N
 
+  - [ ]  **Bổ trợ:**
+  - Chữa contest Quy hoạch động: B1, 3, 4, 6, 8, 13, 14, 15, 16, 17
+  - Bài toán cái túi, xâu con chung dài nhất, coin problem
+  - Dãy con có tổng bằng S
+
 - [ ] **Lesson 16**
 - LIS vs binary search
 - Xâu con đối xứng dài nhất
@@ -115,34 +139,53 @@
 - Các khái niệm trên đồ thị
 - Biểu diễn đồ thị trên máy tính
 
+  - [ ]  **Bổ trợ:**
+  - Chữa hết contest Quy hoạch động: B30, 33, 37
+  - Chữa contest đồ thi: Trang đầu, B11, 14, 16, 18
+  - Truy vết đường đi - dùng mảng parent[]
+
 - [ ] **Lesson 18**
 - Thuật toán BFS
 - Đếm số thành phần liên thông của đồ thị
 - Kiểm tra chu trình trên đồ thị vô hướng và có hướng
 - Đỉnh trụ, cạnh cầu
 
+  - [ ]  **Bổ trợ:**
+  - Chữa contest Đồ thi: hết trang 3 và B42
+  - Sắp xếp Topo: DFS và BFS
+
 - [ ] **Lesson 19**
 - Kosaraju, Tarjan
 - Disjoin set union
+
+  - [ ]  **Bổ trợ:**
+  - Chữa contest Đồ thị: B28 (DSU), B31->B42 (trừ B41)
+  - Cây khung theo thuật toán DFS, BFS
+  - Đồ thị Hai phía
 
 - [ ] **Lesson 20**
 - Thuật toán Kruskal
 - Thuật toán Prim
 
-#### Session 1: 
+## Session 1
+
     Ôn tập C++, STL, các kĩ thuật giải bài
     - Mảng, vector, xâu,set, map, pair, ..
     - Hai con trỏ, sliding window, mảng cộng dồn, mảng hiệu
     - Đệ quy, lý thuyết số và tổ hợp
-#### Session 2: 
+
+## Session 2
+
     Thuật toán
-    - Sắp xếp, tìm        kiếm
+    - Sắp xếp, tìm kiếm
     - sinh
     - Quay lui, nhánh cận
     - Chia và trị
     - Tham lam
     - Quy hoạch động
-#### Session 3: 
+
+## Session 3
+
     Cấu trúc dữ liệu
     - Đồ thị và thuật toán trên đồ thị
     - Ngăn xếp, hàng đợi
@@ -150,21 +193,30 @@
     - Segment tree, Fenwick
 
 ## Vector
+
 Các iterator có thể cộng trừ: ``it = it + 3;``
-- Đối với Set, Map, iterator không thể cộng trừ, chỉ có thể tăng, giảm: ``it++; it--``
+
+- Đối với Set, Map, _iterator_ không thể cộng trừ, chỉ có thể tăng, giảm: ``it++; it--``
 
 ## Set
+
 - Là tập hợp mà mỗi phần tử trong đó là duy nhất
 - Sắp xếp theo thứ tự tăng dần.
 
 - BT liên quan giá trị khác nhau
 - BT truy vấn nhiều phần tử trong mảng
+
 ## Map
+
     Lưu phần tử theo cập key - value
+
 - Các _key_ là những giá trị riêng biệt, _value_ có thể trùng nhau
 - Sắp xếp tăng dần theo key
 - Mỗi phần tử trong map thực chất là một _pair_
 - BT liên quan tần suất, tìm kiếm nhanh, đánh dấu
 
+## Note
+
+    Max, min: quy hoạch động, tham lam, chia và trị, chặt nhị phân kết quả 
 Code:
 ``#include <bits/stdc++.h>``

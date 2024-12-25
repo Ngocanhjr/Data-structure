@@ -1,6 +1,6 @@
-Address: 0x803f5ffbb0
-0x803f5ffbb0 0x803f5ffbb4 0x803f5ffbb8 0x803f5ffbbc 0x803f5ffbc0 
-Dia chi phan tu thu 3:0x803f5ffbbc
+Address: 0x5ffe20
+0x5ffe20 0x5ffe24 0x5ffe28 0x5ffe2c 0x5ffe30 
+Dia chi phan tu thu 3:0x5ffe2c
 Value phan tu thu 3:3
 Vi tri cua it: 3
 Prime number in array a
