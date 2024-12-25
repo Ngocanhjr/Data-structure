@@ -1,80 +1,194 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
 using namespace std;
 
-/*
-binary search, lower_bound, upper_bound
-- logN
-- Áp dụng có chuỗi đã sắp xếp
-* lower_bound: >= x
-- Áp dụng cho mảng, vector, set, map
-- return con trỏ (array) or iterator(vector), not return value;
-- return vị trí đầu tiên của phần tử lớn hơn hoặc bằng x
-- nếu tất cả đều nhỏ hơn X, return last_ite
-- Cú pháp tương tự binary_search
+/// @brief tìm kiếm nhị phân, sort trước khi tìm kiếm
+/// @param a input array
+/// @param n size of array
+/// @param x key need find
+/// @return
+bool binarySearch(int a[], int n, int x)
+{
+    int left = 0, right = n - 1;
 
-* upper_bound: > x
-*/
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+        if (a[mid] == x)
+        {
+            return true;
+        }
+        else if (a[mid] < x)
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            right = mid - 1;
+        }
+    }
+    return false;
+}
+
+// O(logN)
+int firstpPos(int a[], int n, int x)
+{
+    int res = -1;
+    int left = 0, right = n - 1;
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+        if (a[mid] == x)
+        {
+            res = mid;        // update res
+            right = mid - 1;  // Find more on the left
+        }
+        else if (a[mid] < x)
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            right = mid - 1;
+        }
+    }
+    return res;
+}
+
+int lastPos(int a[], int n, int x)
+{
+    int res = -1;
+    int left = 0, right = n - 1;
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+        if (a[mid] == x)
+        {
+            res = mid;
+            left = mid + 1;
+        }
+        else if (a[mid] < x)
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            right = mid - 1;
+        }
+    }
+    return res;
+}
+
+/// @brief Find element >= x
+/// @param a input array
+/// @param n input size of array
+/// @param x input key want to find
+/// @return Position of element >= x
+int lowerBound(int a[], int n, int x)
+{
+    int res = -1;
+    int left = 0, right = n - 1;
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+        if (a[mid] >= x)
+        {
+            res = mid;
+            right = mid - 1;
+        }
+        else
+        {
+            left = mid + 1;
+        }
+    }
+    return res;
+}
+
+/// @brief Find element <= x
+/// @param a
+/// @param n
+/// @param x
+/// @return
+int upperBound(int a[], int n, int x)
+{
+    int res = -1;
+    int left = 0, right = n - 1;
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+        if (a[mid] <= x)
+        {
+            res = mid;
+            left = mid + 1;
+        }
+        else
+        {
+            right = mid - 1;
+        }
+    }
+    return res;
+}
+
 int main()
 {
 #ifndef ONLINE_JUDGE
     freopen("../input.txt", "r", stdin);
     freopen("../output.txt", "w", stdout);
 #endif
-    int size;
-    cin >> size;
-    int a[size];
-    for (int &x : a)
+    int a[] = {1, 3, 6, 78, 9, 66, 45, 9, 9, 9, 9, 9};
+    int n = sizeof(a) / sizeof(int);
+    sort(a, a + n);
+    for (int i = 0; i < n; i++)
     {
-        cin >> x;
+        cout << i << " ";
     }
+    cout << endl;
+
     for (int x : a)
     {
         cout << x << " ";
     }
     cout << endl;
-
-    // Use function in C++: binary search, lower_bound, upper_bound
-    // binary_search: return true/false
-    int num;
-    cin >> num;
-    cout << "Search num: ";
-    if (binary_search(a, a + size, num))
+    cout << "Size of array: " << n << endl;
+    cout << "Enter key u wanna find: ";
+    int key;
+    cin >> key;
+    if (binarySearch(a, n, key))
     {
-        cout << "YES\n";
+        cout << "Founded!\n";
     }
     else
     {
-        cout << "NO\n";
+        cout << "Not founded!\n";
     }
-    // lower_bound: phù hợp tìm phần tử xuất hiện đầu tiên
-    auto it = lower_bound(a, a + size, num);
-    // Nếu không thằng nào lớn hơn hoặc bằng num thì trả về a + size ( a.end())
-    if (*it != num)
+    // cout << "############################################\n";
+    int firstP = firstpPos(a, n, key);
+    if (firstP >= 0)
     {
-        cout << "NOT FOUND\n";
-    }
-    else
-    {
-        cout << "Value >= num: " << *it << endl;
-        cout << "Position >= num: " << (it - a) << endl;
-    }
-
-    // set, map
-    cout << "SET MAP: \n";
-    multiset<int> ms;
-    for (int x : a)
-    {
-        ms.insert(x);
-    }
-
-    auto ite = ms.lower_bound(num);
-    if (ite != ms.end())
-    {
-        cout << *ite << endl;
+        cout << "First pos of " << key << " : " << firstP << endl;
     }
     else
     {
-        cout << "NOT FOUND\n";
+        cout << "!> Not found first position of " << key << endl;
+    }
+    int lastP = lastPos(a, n, key);
+    if (lastP >= 0)
+    {
+        cout << "Last pos of " << key << " : " << lastP << endl;
+    }
+    else
+    {
+        cout << "!> Not found last position of " << key << endl;
+    }
+
+    int lb = lowerBound(a, n, key);
+    if (lb >= 0)
+    {
+        cout << "Lower bound of " << key << " : " << lb << endl;
+        cout << "Value of lower bound: " << a[lb] << endl;  // a[lb] >= key
+    }
+    else
+    {
+        cout << "!> Not found lower bound of " << key << endl;
     }
 }
