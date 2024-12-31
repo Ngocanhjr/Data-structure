@@ -2,6 +2,8 @@
 
 ----
 
+## Not done: Ex37 Sort Search
+
 ## Review
 
 - [x] ⌨ Array
@@ -214,6 +216,23 @@ Các iterator có thể cộng trừ: ``it = it + 3;``
 - Sắp xếp tăng dần theo key
 - Mỗi phần tử trong map thực chất là một _pair_
 - BT liên quan tần suất, tìm kiếm nhanh, đánh dấu
+
+## Thuật toán sinh
+
+    <Bước 1> : Khởi tạo
+      <Khởi tạo cấu hình đầu tiên>
+    <Bước 2> : Lặp
+      while(<Chưa gặp cấu hình cuối cùng>){
+        <Đưa ra cấu hình hiện tại>
+        <Sinh ra cấu hình kế tiếp>
+      }
+    <Đưa ra cấu hình cuối cùng>
+
+- Là phương pháp _vét can_ (thường độ phức tạp lớn)
+- Bài toán liệt kê hoặc đếm cấu hình biết:
+  - _Cấu hình đầu tiên và cấu hình cuối cùng_
+  - Cấu hình hiện tại sinh ra cấu hình kế tiếp
+- Use: Liệt kê xâu nhị phân, lk hoán vị, lk tập con, Sinh phân hoạch
 
 ## Note
 
