@@ -1,0 +1,9 @@
+loại filter=lfs diff=lfs merge=lfs -text
+tệp filter=lfs diff=lfs merge=lfs -text
+thể filter=lfs diff=lfs merge=lfs -text
+gây filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+\# filter=lfs diff=lfs merge=lfs -text
+Hoặc filter=lfs diff=lfs merge=lfs -text
+cụ filter=lfs diff=lfs merge=lfs -text
+lỗi filter=lfs diff=lfs merge=lfs -text
