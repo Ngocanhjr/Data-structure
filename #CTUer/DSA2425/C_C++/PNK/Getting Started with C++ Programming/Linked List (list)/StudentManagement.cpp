@@ -4,7 +4,7 @@ Write a C++ program to to following tasks:
 1. Define a structure Student to store basic informations of a student:
 name: string
 mark: integer
-2. Create a list L to store students using vector<Student> class
+2. Create a list L to store students using list<Student> class
 3. Insert 5 students into L in ordered of its occurrence
 4. Print student List in format
 Name 1: mark 1
@@ -52,8 +52,8 @@ Ron Weasley: 9
 10
 */
 #include <iostream>
+#include <list>    //to use list class
 #include <string>  //to use string class
-#include <vector>  //to use vector class
 using namespace std;
 
 // 1. Define a structure Student to store basic informations of a student:
@@ -64,7 +64,7 @@ typedef struct {
     int mark;
 } Student;
 
-void print(vector<Student> L) {
+void print(list<Student> L) {
     for (auto x : L) {
         cout << x.name << ": " << x.mark;
         cout << endl;
@@ -81,8 +81,8 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    // 2Create a list L to store students using vector<Student> class
-    vector<Student> L;  // create an empty list to store Students
+    // 2Create a list L to store students using list<Student> class
+    list<Student> L;  // create an empty list to store Students
 
     // 3. Insert 5 students into L in ordered of its occurrence
     Student harry;
@@ -101,22 +101,29 @@ int main() {
     print(L);
 
     // 5. Insert a new student (Ginny Weasley, 6) at the 2nd position (1-based)
-    L.insert(L.begin() + 1, {"Gini Weasley", 6});
+    auto iter = L.begin();
+    iter++;
+    L.insert(iter, {"Gini Weasley", 6});
 
     // 6. Print the student list
     print(L);
 
     /// 7. Delete the 3rd element
-    L.erase(L.begin() + 2);
+     iter = L.begin();
+    iter++;
+    iter++;
+    L.erase(iter);
 
     // 8. Print the student list
     print(L);
 
     // 9. Read a string s from stdin, print the mark of the student whose name is s to stdout.
     string s;
-    getline(cin, s);
-    for (int i = 0; i < L.size(); i++)
-        if (s == L[i].name) cout << L[i].mark << endl;
+    getline(cin, s);  // read a line and assign to string s
+    list<Student>::iterator it;
+    for (it = L.begin(); it != L.end(); it++)
+        if (s == it->name)  // compare two strings
+            cout << it->mark << endl;
 
     return 0;
 }
