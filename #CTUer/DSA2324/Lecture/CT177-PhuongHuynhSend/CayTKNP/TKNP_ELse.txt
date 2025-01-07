@@ -1,0 +1,207 @@
+//Cau 1
+Tree LeftChild ( Tree T) {
+    if (T!=NULL) return T->Left; else return NULL;
+}
+Tree RightChild ( Tree T) {
+    if (T!=NULL) return T->Right ; else return NULL;
+}
+void posOrder( Tree T){
+    if (LeftChild(T) !=NULL) posOrder(LeftChild(T));
+    if (RightChild(T)!=NULL) posOrder(RightChild(T));
+    printf("%d ",T->Key);
+}
+
+// Cau2
+int deleteMin (Tree *pT) {
+    if ((*pT)->Left==NULL) {
+        int K = (*pT)->Key;
+        (*pT) = (*pT) ->Right;
+        return K;
+    }
+    else return deleteMin(&(*pT)->Left);
+}
+void deleteNode(int x, Tree *pT) {
+    if ((*pT)!=NULL) {
+        if (x<(*pT)->Key) deleteNode(x,&(*pT)->Left);
+        else 
+        if (x>(*pT)->Key) deleteNode (x,&(*pT)->Right);
+        else 
+        if (((*pT)->Left==NULL) && ((*pT)->Right==NULL) )
+        
+            (*pT) =NULL;
+        
+        else 
+        if ((*pT)->Left==NULL) 
+            (*pT) = (*pT) ->Right;
+        
+        else  
+        if ((*pT)->Right ==NULL ) (*pT) = (*pT) ->Left;
+        else 
+        (*pT) ->Key= deleteMin(&(*pT)->Right);
+    }
+}
+//Cau 3 
+void insertNode( int x, Tree *pT) {
+    if ((*pT)==NULL) {
+        (*pT) = (struct Node*) malloc(sizeof(struct Node));
+        (*pT)->Key = x;
+        (*pT)->Left= NULL;
+        (*pT) ->Right= NULL;
+    
+        
+    }
+    else 
+    if ((*pT)->Key!=x) {
+         if ((*pT)->Key>x) {
+        insertNode(x,&(*pT)->Left);
+    }
+    else  insertNode(x,&(*pT)->Right);
+    } 
+   
+}
+// Cau 4
+Tree searchNode(int x, Tree T) {
+    if (T==NULL) 
+        return NULL;
+        else  {
+            if (T->Key==x) return T;
+            else  {
+                if (T->Key < x) return searchNode(x,T->Right);
+                else return searchNode(x,T->Left);
+            }
+        }
+}
+// Cau 5
+Tree LeftChild (Tree T) {
+if (T!=NULL) {
+    return T->Left;
+} else  return NULL;
+     
+}
+Tree RightChild (Tree T) {
+    if (T!=NULL) {
+        return T->Right;
+    } else return NULL;
+}
+void printPath(int x, Tree T) {
+    if (T!=NULL) {
+        int temp = T->Key;
+        printf("%d ",temp);
+        if (x==temp) 
+            printf("-> Tim thay");
+        
+        else 
+            if (x<temp) printPath(x,LeftChild(T));
+            else if (x>temp) printPath(x,RightChild(T));
+      }  else 
+        printf("-> Khong thay");
+    
+} 
+//Cau 6
+Tree getMin(Tree T){
+    if(T!=NULL){
+        if(T->Left == NULL) return T;
+        else return getMin(T->Left);
+    }
+    else return NULL;
+}
+Tree getPrevious(int x, Tree T){
+    Tree P=T, ancestor=NULL;
+    while(P!=NULL){
+        if(P->Key == x){
+            if(P->Left == NULL) return ancestor;
+            else return getMin(P->Left);
+        }
+        else if(x < P->Key)    P = P->Left;
+        else{ // x > P->Key
+            ancestor = P;
+            P = P->Right;
+        }
+    }
+    return NULL;
+}
+// Cau 7
+int getHeight(Tree T) {
+//if (T->Left != NULL) 
+if (T!=NULL) {
+    int a = getHeight(T->Left)+1;
+// if (T->Right != NULL)    
+int b = getHeight(T->Right)+1;
+if (a>b) return a ; else return b;
+}
+else return -1;
+
+}
+
+//
+Tree getParent (int x,Tree T) {
+    Tree Parent=NULL; Tree P=T;
+   
+        while (P!=NULL) 
+    {
+        if (x< P->Key) {
+            Parent = P;
+            P=P->Left;
+        }
+        else 
+        if (x> P->Key) {
+             Parent =P;
+            P=P->Right;
+        }
+        else return Parent;
+    }
+    return NULL;
+    
+}
+
+// Cau 9
+Tree getParent (int x,Tree T) {
+    Tree Parent=NULL; Tree P=T;
+   
+        while (P!=NULL) 
+    {
+        if (x< P->Key) {
+            Parent = P;
+            P=P->Left;
+        }
+        else 
+        if (x> P->Key) {
+             Parent =P;
+            P=P->Right;
+        }
+        else return Parent;
+    }
+    return NULL;
+    
+}
+Tree rightSibling(int x, Tree T) {
+    Tree PT = getParent(x,T);
+    if (PT==NULL) return NULL; else 
+   if (PT->Right==NULL) return NULL ;else 
+    if (PT->Right->Key ==x  ) return NULL; else return PT->Right;
+    
+}
+// cau 10
+Tree SearchNode (int x, Tree T) {
+     if (T!=NULL) {
+        if (x<T->Key) return SearchNode ( x, T->Left);
+        else 
+        if (x> T->Key) return SearchNode ( x, T->Right);
+        else return T;
+   }
+       
+    else return NULL;
+}
+
+int getHeight(Tree T) {
+    if (T!=NULL) {
+        int a = getHeight(T->Left) +1;
+        int b = getHeight(T->Right) +1;
+        if (a>b) return a ; else return b;
+    } else return -1;
+}
+
+int hNode (int x, Tree T) {
+Tree P = SearchNode(x,T);
+ return getHeight(P);
+}

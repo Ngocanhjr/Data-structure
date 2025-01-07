@@ -1,0 +1,9 @@
+Address: 0x5ffe20
+0x5ffe20 0x5ffe24 0x5ffe28 0x5ffe2c 0x5ffe30 
+Dia chi phan tu thu 3:0x5ffe2c
+Value phan tu thu 3:3
+Vi tri cua it: 3
+Prime number in array a
+2 3 
+2 3 
+1 1 2 3 4 

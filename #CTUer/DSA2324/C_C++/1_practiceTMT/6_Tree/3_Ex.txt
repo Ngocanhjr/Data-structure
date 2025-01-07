@@ -1,0 +1,74 @@
+---------------------Exercise_3_3_Binary_Search-------------------------
+ElementType binarySearch(ElementType x, List L) {
+    Position p = first(L);
+    Position q = endList(L);
+    // printf("%d", getAt(p,L));
+    int found = 0;
+    while (p != q && !found) {
+        if (getAt(p, L) == x) {
+            found = 1;
+            return p - 1;
+        }
+        p = next(p, L);
+    }
+
+    return -1;
+}
+
+--------------------Exercise_4_1_BST_(traversal NLR)---------------------
+void pre_order(Tree T){
+    if(T!=NULL){
+        printf("%d ", T->key);
+        pre_order(T->left);
+          pre_order(T->right);
+    }
+}
+
+--------------------Exercise 4.2: BST (traversal LNR)--------------------
+void in_order(Tree T){
+    if(T!=NULL){        
+        in_order(T->left);
+        printf("%d ", T->key);
+        in_order(T->right);
+    }
+}
+
+--------------------Exercise 4.3: BST (traversal LRN)--------------------
+void post_order(Tree T){
+    if(T!=NULL){        
+        post_order(T->left);
+        post_order(T->right);
+        printf("%d ", T->key);
+    }
+}
+
+-------------------Exercise 4.4: BST (Search key and Path)---------------------
+void print_path(int x, Tree T) {
+    if (T != NULL) {
+        printf("%d ", T->key);
+        if (x == T->key) {
+            printf(" --> Tim thay");
+        } else if (x < T->key) {
+            // printf("%d ",T->key);
+            print_path(x, T->left);
+        } else if (x > T->key) {
+            // printf("%d ",T->key);
+            print_path(x, T->right);
+        }
+    } else {
+        printf(" --> Tim khong thay");
+    }
+}
+
+---------------------Exercise 4.5: BST (Hight of tree)---------------------
+int get_height(Tree T){
+    if(T==NULL){
+        return -1;
+    } else {
+        int l = get_height(T->left);
+        int r = get_height(T->right);
+        return (l>r?l:r) + 1;
+    }
+}
+
+---------------------Exercise 4.6: BST (Delete node)-----------------------
