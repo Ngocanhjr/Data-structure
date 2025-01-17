@@ -83,6 +83,7 @@ int main() {
     // 7. Print elements of L
     print(L);
 
+    // 8. Print possition of x
     int x;
     cin >> x;
     bool flag = false;
