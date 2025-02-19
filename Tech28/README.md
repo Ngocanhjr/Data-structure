@@ -193,6 +193,7 @@
     - Ngăn xếp, hàng đợi
     - Cây nhị phân
     - Segment tree, Fenwick
+  [Lecture notes](https://www.notion.so/Graph-19f9807d0426808881e4d925d19d312a#19f9807d042680b793e2f821d47404a5)
 
 ## Vector
 
