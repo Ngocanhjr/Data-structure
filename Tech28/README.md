@@ -137,7 +137,7 @@
 - LIS vs binary search
 - Xâu con đối xứng dài nhất
 
-- [ ] **Lesson 17**
+- [x] **Lesson 17**
 - Các khái niệm trên đồ thị
 - Biểu diễn đồ thị trên máy tính
 
@@ -194,7 +194,9 @@
     - Cây nhị phân
     - Segment tree, Fenwick
   [Lecture notes](https://www.notion.so/Graph-19f9807d0426808881e4d925d19d312a#19f9807d042680b793e2f821d47404a5)
-
+  
+  [Truy cập Notion](https://few-blossom-37d.notion.site/ebd/19f9807d0426808881e4d925d19d312a)
+  
 ## Vector
 
 Các iterator có thể cộng trừ: ``it = it + 3;``
