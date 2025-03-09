@@ -146,7 +146,7 @@
   - Chữa contest đồ thi: Trang đầu, B11, 14, 16, 18
   - Truy vết đường đi - dùng mảng parent[]
 
-- [ ] **Lesson 18**
+- [x] **Lesson 18**
 - Thuật toán BFS
 - Đếm số thành phần liên thông của đồ thị
 - Kiểm tra chu trình trên đồ thị vô hướng và có hướng
@@ -194,8 +194,6 @@
     - Cây nhị phân
     - Segment tree, Fenwick
   [Lecture notes](https://www.notion.so/Graph-19f9807d0426808881e4d925d19d312a#19f9807d042680b793e2f821d47404a5)
-  
-  [Truy cập Notion](https://few-blossom-37d.notion.site/ebd/19f9807d0426808881e4d925d19d312a)
   
 ## Vector
 
