@@ -1,9 +1,1 @@
-Address: 0x803f5ffbb0
-0x803f5ffbb0 0x803f5ffbb4 0x803f5ffbb8 0x803f5ffbbc 0x803f5ffbc0 
-Dia chi phan tu thu 3:0x803f5ffbbc
-Value phan tu thu 3:3
-Vi tri cua it: 3
-Prime number in array a
-2 3 
-2 3 
-1 1 2 3 4 
+1 2 3 4 5 7 6 8 9 10 11 12 
