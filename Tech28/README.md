@@ -120,7 +120,7 @@
 - Chữa các bài tập còn lại contest tham lam
 - Lũy thừa nhị phân, xâu Fibo
 
-- [ ] **Lesson 15**
+- [x] **Lesson 15**
 - Dãy con tăng dài nhất
 - Stair case
 - Mô hình di chuyển qhd trên mảng 2 chiều
@@ -165,7 +165,7 @@
   - Cây khung theo thuật toán DFS, BFS
   - Đồ thị Hai phía
 
-- [ ] **Lesson 20**
+- [x] **Lesson 20**
 - Thuật toán Kruskal
 - Thuật toán Prim
 
