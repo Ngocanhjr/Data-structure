@@ -4,7 +4,7 @@
 #include <utility>
 using namespace std;
 
-//Bước 1: Biểu diễn bằng phương pháp dánh sách các đỉnh kề (adjacency list)
+//Bước 1: Biểu diễn bằng phương pháp danh sách các đỉnh kề (adjacency list)
 //Sử dụng n danh sách adj[]
 //Với mỗi cung u --w--> v, ta lưu (v, w) vào danh sách adj[u]
 typedef pair<int, int> Cell; // phần tử đầu tiên (first) lưu trọng số w

@@ -37,7 +37,7 @@ void Moore_Dijkstra(Graph* pG, int s) {
     d[s] = 0;
 
     // Lặp n lần (mỗi lần chọn một đỉnh và đánh dấu nó là SURE)
-    for (int it = 1; it <= pG->n; it++) {
+    for  (int it = 1; it <= pG->n; it++) {
         // Tìm đỉnh u NOT_SURE có d[u] nhỏ nhất
         int u = -1;
         int min_d = oo;
