@@ -21,15 +21,10 @@ void init_graph(Graph* pG, int n) {
     }
 }
 
-// thêm vào đồ thị vô hướng
-void add_edge_co_h(Graph* pG, int u, int v) {
-    pG->A[u][v] = 1;
-    pG->A[v][u] = 1;
-    pG->m++;
-}
+
 
 // thêm vào đồ thị vô hướng, có thể chứa đa cung và chưa khuyên
-void add_edge_vo_huong(Graph* pG, int u, int v) {
+void add_edge(Graph* pG, int u, int v) {
     if(u == v) { // trường hợp (u, u)
         pG->A[u][v]++;
     }else if (pG->A[u][v] == 1) { //đa cung
@@ -38,16 +33,6 @@ void add_edge_vo_huong(Graph* pG, int u, int v) {
     }  else { //cung chưa tồn tại
         pG->A[u][v] = 1;
         pG->A[v][u] = 1;
-    }
-    pG->m++;
-}
-
-// thêm vào đồ thị có hướng, có thể chứa đa cung và chưa khuyên
-void add_edge(Graph* pG, int u, int v) {
-    if (pG->A[u][v] == 1) { //đa cung
-        pG->A[u][v]++;
-    }  else { //cung chưa tồn tại
-        pG->A[u][v] = 1;
     }
     pG->m++;
 }
@@ -75,3 +60,23 @@ int main() {
     }
     return 0;
 }
+
+#if 0
+
+void init_graph(Graph *pG, int n) {
+    pG->n = n;
+    pG->m = 0;
+    for (int u = 1; u <= n; u++)
+        for (int v = 1; v <= n; v++)
+            pG->A[u][v] = 0;
+}
+
+void add_edge(Graph *pG, int u, int v) {
+    pG->A[u][v] += 1;
+    if (u != v)
+        pG->A[v][u] += 1;
+    
+    pG->m++;
+}
+
+#endif
