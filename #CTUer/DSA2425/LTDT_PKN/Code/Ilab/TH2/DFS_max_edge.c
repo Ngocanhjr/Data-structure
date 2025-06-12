@@ -24,8 +24,11 @@ void init_graph(Graph* pG, ElementType n) {
 
 // add edge (u,v) to graph
 void add_edge(Graph* pG, ElementType u, ElementType v) {
-    pG->A[u][v] = 1;
-    pG->A[v][u] = 1;
+    // pG->A[u][v] = 1;
+    // pG->A[v][u] = 1;
+
+    pG->A[u][v] += 1;
+    if (u != v) pG->A[v][u] += 1;
     pG->m++;
 }
 
