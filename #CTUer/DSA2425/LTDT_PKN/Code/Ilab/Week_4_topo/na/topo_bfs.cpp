@@ -59,7 +59,7 @@ int size_list(List* pL) {
     return pL->size;
 }
 
-//---------------------------Graph------------------
+//---------------------------Graph-----------------------
 typedef struct {
     int n, m;
     int A[MAX_SIZE][MAX_SIZE];
