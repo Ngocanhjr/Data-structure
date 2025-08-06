@@ -125,7 +125,6 @@ int main() {
 
     rank(&G);
     for (int i = 1; i <= n; i++) {
-        printf("%d\n", r[i] + 1);  // vì ban đầu bé nào cũng có ít nhất 1 viên
-        // sum += rank[i] + 1;
+        printf("r[%d] = %d\n", i, r[i]);
     }
 }

@@ -25,10 +25,10 @@ void add_edge(Graph* pG, int u, int v) {
 }
 
 int rev_adj(Graph* pG, int u, int v) {
-    return pG->A[v][u] > 0;
+    return pG->A[u][v] > 0;
 }
 
-//-------------------rank----------- (v -> u)
+//-------------------rank----------- (u -> v)
 int visited[MAX_SIZE];
 int rank[MAX_SIZE];  // Luu lai xep hang cua cac dinh
 
@@ -76,7 +76,10 @@ int main() {
     }
 
     // in
+    int sum = 0;
     for (int i = 1; i <= n; i++) {
-        printf("r[%d] = %d\n", i, rank[i]);
+        printf("%d\n", rank[i] + 1);  // vì ban đầu bé nào cũng có ít nhất 1 viên
+        sum += rank[i] + 1;
     }
+    printf("%d\n", sum);
 }

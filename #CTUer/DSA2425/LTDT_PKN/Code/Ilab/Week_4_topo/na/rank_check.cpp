@@ -77,6 +77,6 @@ int main() {
 
     // in
     for (int i = 1; i <= n; i++) {
-        printf("r[%d] = %d\n", i, rank[i]);
+        printf("%d\n", rank[i]);
     }
 }
