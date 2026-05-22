@@ -1,6 +1,5 @@
+// Functions for the water jug problem
 #include <iostream>
-// Implement using DFS
-#include <stack>
 
 #define TANK_CAPACITY_X 9
 #define TANK_CAPACITY_Y 4

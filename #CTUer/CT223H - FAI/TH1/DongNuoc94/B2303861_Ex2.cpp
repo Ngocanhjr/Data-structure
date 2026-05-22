@@ -21,7 +21,12 @@ void print_ways_to_get_goal(Node* node);
 Node* DFS_Algorithm(State state);
 
 int main() {
-    State cur_state = {0, 0};
+    int cur_state_x = 0;
+    int cur_state_y = 0;
+    cout << "Initial state: " << endl;
+    cin >> cur_state_x >> cur_state_y;
+
+    State cur_state = {cur_state_x, cur_state_y};
     Node* result = DFS_Algorithm(cur_state);
     print_ways_to_get_goal(result);
     return 0;

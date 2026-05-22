@@ -1,8 +1,8 @@
+// Exercise 1 Update: 22-05-2026
 #include "B2303861_Functions.cpp"
 
 int main() {
-    // Exercise 1
-    cout << "Enter current state of X và Y: ";
+    cout << "Enter initial state of X và Y: ";
     int cur_x, cur_y;
     cin >> cur_x >> cur_y;
     if (cur_x > TANK_CAPACITY_X || cur_y > TANK_CAPACITY_Y){
